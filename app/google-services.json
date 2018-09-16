@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "32996973342",
+    "firebase_url": "https://chat-rooms-32e95.firebaseio.com",
+    "project_id": "chat-rooms-32e95",
+    "storage_bucket": "chat-rooms-32e95.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:32996973342:android:36a9341b97869959",
+        "android_client_info": {
+          "package_name": "vukan.com.chatRooms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "32996973342-gf8hkdhet5msdtdhe8tjt034kb3mp0s4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "vukan.com.chatRooms",
+            "certificate_hash": "2fc3d6837f8ea6fec881433bc1c920776737b652"
+          }
+        },
+        {
+          "client_id": "32996973342-9g5u1acvcdl3vr8dg920qf8d6ogmkmnb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLZSVvEig6FmCCFLowwJkMFAVvZdBMTh8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "32996973342-9g5u1acvcdl3vr8dg920qf8d6ogmkmnb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

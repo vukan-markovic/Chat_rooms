@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/primary"
+            android:contentDescription="@string/sport"
+            android:onClick="clickHandler1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/sport"
+            tools:ignore="NestedWeights" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/accent"
+            android:contentDescription="@string/technology"
+            android:onClick="clickHandler3"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/technology" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/primary"
+            android:contentDescription="@string/crypto_currency"
+            android:onClick="clickHandler2"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/ecomony" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/accent"
+            android:contentDescription="@string/movies"
+            android:gravity="center_horizontal"
+            android:onClick="clickHandler4"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/movies"
+            tools:ignore="NestedWeights" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/primary"
+            android:contentDescription="@string/series"
+            android:gravity="center_horizontal"
+            android:onClick="clickHandler5"
+            android:paddingLeft="10dp"
+            android:paddingTop="44dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="44dp"
+            android:src="@drawable/series" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/accent"
+            android:contentDescription="@string/art"
+            android:onClick="clickHandler6"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/art" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/primary"
+            android:contentDescription="@string/music"
+            android:onClick="clickHandler7"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/music"
+            tools:ignore="NestedWeights" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/accent"
+            android:contentDescription="@string/games"
+            android:gravity="center_horizontal"
+            android:onClick="clickHandler8"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/games" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/primary"
+            android:contentDescription="@string/countries"
+            android:gravity="center_horizontal"
+            android:onClick="clickHandler9"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/countries" />
+
+    </LinearLayout>
+
+</LinearLayout>

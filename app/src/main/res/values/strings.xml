@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Chat Rooms</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="enter_the_message">Enter the message</string>
+    <string name="art">Art</string>
+    <string name="games">Games</string>
+    <string name="sport">Sport</string>
+    <string name="crypto_currency">Crypto currency</string>
+    <string name="movies">Movies</string>
+    <string name="music">Music</string>
+    <string name="series">Series</string>
+    <string name="technology">Technology</string>
+    <string name="profile">Profile</string>
+    <string name="profile_picture" translatable="false">Profile picture</string>
+    <string name="chat_rules">Chat Rooms Rules: Always keep to the purpose of the group! Don’t share irrelevant messages about other topics. Do not spam the group! If you would like a group to share memes, adverts or deals with then set one up for that exact purpose and invite others to join. Post your message in one single chunk of text, don’t post every word or sentence in a new message. Do not have one-on-one conversations in the group. If someone asks a question and you don’t know the answer don’t respond with “I don’t know”. Just wait for someone who knows the answer to reply. The group is not a political platform (unless you have specifically set it up for this purpose) No arguing, no heated opinions, no fear mongering, no hyped up drama, no fake news. Check your sources before you share. Never EVER use a group to berate someone else or air grievances. If you have an issue address it one on one with the relevant person. If you are not sure, ask yourself these three questions before you post: Is this relevant? Is this necessary? Is this a good time to post?</string>
+    <string name="chat_rules_title">Chat rules</string>
+    <string name="delete_account">Delete account</string>
+    <string name="message">Message</string>
+    <string name="countries">Countries</string>
+    <string name="change">Change</string>
+    <string name="update">Update</string>
+    <string name="twitter_consumer_key" translatable="false">Qdi72lFNQK0h3To4XqYAbt3fq</string>
+    <string name="twitter_consumer_secret" translatable="false">JtPXQZxxVYn5c5cJLFRmllD5DRM6zG7YlIxjBZnxXmSOny0HOt</string>
+    <string name="facebook_application_id" translatable="false">419069908499165</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fb419069908499165</string>
+    <string name="messenger_send_button_text">Send</string>
+    <string name="profile_picture_url">Profile picture url</string>
+    <string name="new_username">New username</string>
+    <string name="invite_friends">Invite friends</string>
+    <string name="share">Share</string>
+    <string name="invitation_custom_image">https://www.idealizetecnologia.com.br/blog/wp-content/uploads/2018/03/chat-ecommerce-1024x867.jpg</string>
+    <string name="invitation_title">Try Chat rooms today!</string>
+    <string name="invitation_cta">test</string>
+    <string name="invitation_message">Come and try Chat rooms to chat with other people about different topics!</string>
+    <string name="invitation_deep_link">https://vukan97.page.link/chat_rooms</string>
+</resources>
