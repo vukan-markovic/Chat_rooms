@@ -11,7 +11,7 @@
     <string name="music">Music</string>
     <string name="series">Series</string>
     <string name="technology">Technology</string>
-    <string name="profile">Profile</string>
+    <string name="update_profile">Update profile</string>
     <string name="profile_picture" translatable="false">Profile picture</string>
     <string name="chat_rules">Chat Rooms Rules: Always keep to the purpose of the group! Don’t share irrelevant messages about other topics. Do not spam the group! If you would like a group to share memes, adverts or deals with then set one up for that exact purpose and invite others to join. Post your message in one single chunk of text, don’t post every word or sentence in a new message. Do not have one-on-one conversations in the group. If someone asks a question and you don’t know the answer don’t respond with “I don’t know”. Just wait for someone who knows the answer to reply. The group is not a political platform (unless you have specifically set it up for this purpose) No arguing, no heated opinions, no fear mongering, no hyped up drama, no fake news. Check your sources before you share. Never EVER use a group to berate someone else or air grievances. If you have an issue address it one on one with the relevant person. If you are not sure, ask yourself these three questions before you post: Is this relevant? Is this necessary? Is this a good time to post?</string>
     <string name="chat_rules_title">Chat rules</string>
@@ -19,7 +19,6 @@
     <string name="message">Message</string>
     <string name="countries">Countries</string>
     <string name="change">Change</string>
-    <string name="update">Update</string>
     <string name="twitter_consumer_key" translatable="false">Qdi72lFNQK0h3To4XqYAbt3fq</string>
     <string name="twitter_consumer_secret" translatable="false">JtPXQZxxVYn5c5cJLFRmllD5DRM6zG7YlIxjBZnxXmSOny0HOt</string>
     <string name="facebook_application_id" translatable="false">419069908499165</string>
