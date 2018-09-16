@@ -3,6 +3,7 @@ package vukan.com.chatRooms;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -19,6 +20,7 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 public class UpdateProfileActivity extends AppCompatActivity {
     private EditText name;
     private static final int RC_PHOTO_PICKER = 1;
+    @Nullable
     private Uri selectedImageUri;
     private Animation animation;
 
@@ -28,7 +30,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_update_profile);
         name = findViewById(R.id.update_username);
         ImageButton photo = findViewById(R.id.photo);
-        name.setText(getIntent().getStringExtra(ProfileActivity.USERNAME));
+        name.setText(getIntent().getStringExtra(MainActivity.USERNAME));
         animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
         animation.setDuration(100);
 
@@ -41,7 +43,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
         });
     }
 
-    public void changeProfile(View view) {
+    public void changeProfile(@NonNull View view) {
         view.startAnimation(animation);
         if (name.length() != 0 && !name.getText().toString().equals("") && !name.getText().toString().isEmpty()) {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

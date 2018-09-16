@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -90,21 +89,25 @@ public class MainActivity extends AppCompatActivity {
 
         if (requestCode == RC_SIGN_IN) {
             IdpResponse response = IdpResponse.fromResultIntent(data);
-            if (resultCode == RESULT_OK)
-                Toast.makeText(this, "Signed in!", Toast.LENGTH_SHORT).show();
-            else if (resultCode == RESULT_CANCELED) {
-                Toast.makeText(this, "Signed out!", Toast.LENGTH_SHORT).show();
-                finish();
-            } else {
-                if (response == null) {
-                    Toast.makeText(this, "Sign in cancelled!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (Objects.requireNonNull(response.getError()).getErrorCode() == ErrorCodes.NO_NETWORK) {
-                    Toast.makeText(this, "No internet connection", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                Toast.makeText(this, "Unknown error", Toast.LENGTH_SHORT).show();
+            switch (resultCode) {
+                case RESULT_OK:
+                    Toast.makeText(this, "Signed in!", Toast.LENGTH_SHORT).show();
+                    break;
+                case RESULT_CANCELED:
+                    Toast.makeText(this, "Signed out!", Toast.LENGTH_SHORT).show();
+                    finish();
+                    break;
+                default:
+                    if (response == null) {
+                        Toast.makeText(this, "Sign in cancelled!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    if (Objects.requireNonNull(response.getError()).getErrorCode() == ErrorCodes.NO_NETWORK) {
+                        Toast.makeText(this, "No internet connection", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    Toast.makeText(this, "Unknown error", Toast.LENGTH_SHORT).show();
+                    break;
             }
         } else if (requestCode == REQUEST_INVITE) {
             if (resultCode == RESULT_OK) {
@@ -122,25 +125,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.profile_menu:
-                Intent intent1 = new Intent(this, ProfileActivity.class);
+            case R.id.update_profile_menu:
+                Intent intent1 = new Intent(this, UpdateProfileActivity.class);
                 intent1.putExtra(USERNAME, Objects.requireNonNull(user).getDisplayName());
-                intent1.setData(user.getPhotoUrl());
                 startActivity(intent1);
                 break;
             case R.id.chat_rules_menu:
                 startActivity(new Intent(this, ChatRulesActivity.class));
                 break;
-            case R.id.share:
-                Intent shareIntent = ShareCompat.IntentBuilder
-                        .from(this)
-                        .setType("text/plain")
-                        .setText("Hello from Chat Rooms!")
-                        .getIntent();
-                if (shareIntent.resolveActivity(getPackageManager()) != null)
-                    startActivity(shareIntent);
-                break;
-            case R.id.invite_friends:
+            case R.id.invite_friends_menu:
                 Intent intent = new AppInviteInvitation.IntentBuilder(getString(R.string.invitation_title))
                         .setMessage(getString(R.string.invitation_message))
                         .setDeepLink(Uri.parse(getString(R.string.invitation_deep_link)))
@@ -149,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
                         .build();
                 startActivityForResult(intent, REQUEST_INVITE);
                 break;
-            case R.id.share_2:
+            case R.id.share_menu:
                 Intent sendIntent = new Intent();
                 String msg = "Hey, check this out: https://vukan97.page.link/chat_rooms";
                 sendIntent.setAction(Intent.ACTION_SEND);
@@ -193,47 +186,47 @@ public class MainActivity extends AppCompatActivity {
             mFirebaseAuth.removeAuthStateListener(mAuthStateListener);
     }
 
-    public void clickHandler1(View view) {
+    public void clickHandler1(@NonNull View view) {
         view.startAnimation(animation);
         openChat("sport");
     }
 
-    public void clickHandler2(View view) {
+    public void clickHandler2(@NonNull View view) {
         view.startAnimation(animation);
         openChat("economy");
     }
 
-    public void clickHandler3(View view) {
+    public void clickHandler3(@NonNull View view) {
         view.startAnimation(animation);
         openChat("technology");
     }
 
-    public void clickHandler4(View view) {
+    public void clickHandler4(@NonNull View view) {
         view.startAnimation(animation);
         openChat("movies");
     }
 
-    public void clickHandler5(View view) {
+    public void clickHandler5(@NonNull View view) {
         view.startAnimation(animation);
         openChat("series");
     }
 
-    public void clickHandler6(View view) {
+    public void clickHandler6(@NonNull View view) {
         view.startAnimation(animation);
         openChat("art");
     }
 
-    public void clickHandler7(View view) {
+    public void clickHandler7(@NonNull View view) {
         view.startAnimation(animation);
         openChat("music");
     }
 
-    public void clickHandler8(View view) {
+    public void clickHandler8(@NonNull View view) {
         view.startAnimation(animation);
         openChat("games");
     }
 
-    public void clickHandler9(View view) {
+    public void clickHandler9(@NonNull View view) {
         view.startAnimation(animation);
         openChat("countries");
     }

@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/profile_menu"
+        android:id="@+id/update_profile_menu"
         android:orderInCategory="1"
-        android:title="@string/profile"
+        android:title="@string/update_profile"
         app:showAsAction="never" />
 
     <item
@@ -15,19 +15,13 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/share"
-        android:orderInCategory="3"
-        android:title="@string/share"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/invite_friends"
+        android:id="@+id/invite_friends_menu"
         android:orderInCategory="4"
         android:title="@string/invite_friends"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/share_2"
+        android:id="@+id/share_menu"
         android:orderInCategory="5"
         android:title="@string/share"
         app:showAsAction="never" />
