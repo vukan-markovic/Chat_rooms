@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/activity_horizontal_margin"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:background="@color/primary_light"
+    android:orientation="horizontal"
+    android:padding="6dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_picture_message"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_vertical"
+        android:contentDescription="@string/profile_picture"
+        app:civ_border_color="@color/accent"
+        app:civ_border_width="2dp"
+        tools:src="@android:mipmap/sym_def_app_icon" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="6dp">
+
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="all"
+            android:contentDescription="@string/message"
+            android:enabled="true"
+            android:fontFamily="casual"
+            android:linksClickable="true"
+            android:longClickable="true"
+            android:maxLength="500"
+            android:minLines="1"
+            android:saveEnabled="true"
+            android:shadowColor="@color/accent"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/primary_dark"
+            android:textColorLink="@color/primary"
+            android:textIsSelectable="true"
+            android:textStyle="bold"
+            android:typeface="serif"
+            android:visibility="visible"
+            tools:text="Message" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/accent"
+            android:textStyle="bold"
+            tools:text="Name" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textStyle="bold"
+            tools:text="Time" />
+
+    </LinearLayout>
+
+</LinearLayout>

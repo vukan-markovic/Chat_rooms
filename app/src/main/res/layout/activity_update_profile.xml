@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_dark"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".UpdateProfileActivity">
+
+    <EditText
+        android:id="@+id/update_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:hint="@string/new_username"
+        android:inputType="text"
+        android:minLines="1"
+        android:textAlignment="center"
+        android:textColor="@color/primary_light"
+        android:textColorHint="@color/primary_light"
+        android:textStyle="bold"
+        tools:ignore="Autofill,LabelFor"
+        tools:text="Username" />
+
+    <ImageButton
+        android:id="@+id/photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@color/fui_transparent"
+        android:contentDescription="@string/profile_picture_url"
+        android:src="@android:drawable/ic_menu_gallery" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_selector"
+        android:onClick="changeProfile"
+        android:text="@string/change"
+        android:textColor="@color/primary_light" />
+
+</LinearLayout>

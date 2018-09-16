@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="crypto_currency">
+        <item>Bitcoin</item>
+        <item>Ethereum</item>
+        <item>XRP</item>
+        <item>Bitcoin Cash</item>
+        <item>EOS</item>
+        <item>Litecoin</item>
+        <item>Tether</item>
+        <item>Cardano</item>
+        <item>IOTA</item>
+        <item>Monero</item>
+        <item>TRON</item>
+        <item>Dash</item>
+        <item>Etherum Classic</item>
+        <item>NEO</item>
+        <item>Binance Coin</item>
+        <item>VeChain</item>
+        <item>NEM</item>
+        <item>Tezos</item>
+        <item>Zcash</item>
+    </string-array>
+
+    <string-array name="technologies">
+        <item>HTML</item>
+        <item>CSS</item>
+        <item>Javascript</item>
+        <item>C++</item>
+        <item>Java</item>
+        <item>Kotlin</item>
+        <item>C</item>
+        <item>Python</item>
+        <item>SQL</item>
+        <item>PHP</item>
+        <item>Swift</item>
+        <item>Jquery</item>
+        <item>Bootstrap</item>
+        <item>Regular expressions</item>
+        <item>Algorithms</item>
+        <item>Design patterns</item>
+        <item>Data structures</item>
+        <item>Angular</item>
+        <item>Machine learning</item>
+        <item>Android</item>
+        <item>R</item>
+    </string-array>
+
+    <string-array name="sports">
+        <item>Football</item>
+        <item>FIFA World cup</item>
+        <item>UEFA Euro cup</item>
+        <item>Champions league</item>
+        <item>Europa league</item>
+        <item>Basketball</item>
+        <item>Euroleague</item>
+        <item>Eurocup</item>
+        <item>Tennis</item>
+        <item>Cricket</item>
+        <item>Baseball</item>
+        <item>Swimming</item>
+    </string-array>
+
+    <string-array name="movies">
+        <item>Oscars</item>
+        <item>Golden Globes</item>
+        <item>Sundance</item>
+        <item>Cannes</item>
+        <item>Comic Con</item>
+        <item>Emmy Awards</item>
+        <item>Venice Film Festival</item>
+        <item>Toronto Film Festival</item>
+        <item>Tribeca</item>
+        <item>SXSW</item>
+        <item>Baftas</item>
+        <item>SAGS</item>
+        <item>Spirits</item>
+        <item>Gothams</item>
+        <item>Critics Choice</item>
+    </string-array>
+
+    <string-array name="music">
+        <item>Alternative</item>
+        <item>Blues</item>
+        <item>Classical</item>
+        <item>Country</item>
+        <item>Comedy</item>
+        <item>Dance</item>
+        <item>Electronic</item>
+        <item>Folk</item>
+        <item>Hip-Hop/Rap</item>
+        <item>Holiday</item>
+        <item>Jazz</item>
+        <item>Metal</item>
+        <item>Pop</item>
+        <item>Reggae</item>
+        <item>Rock</item>
+        <item>Soundtracks</item>
+        <item>Vocal</item>
+        <item>World</item>
+    </string-array>
+
+    <string-array name="series">
+        <item>Breaking Bad</item>
+        <item>Game of Thrones</item>
+        <item>Rick and Morty</item>
+        <item>Sherlock</item>
+        <item>True Detective</item>
+        <item>Fargo</item>
+        <item>Stranger Things</item>
+        <item>House of Cards</item>
+        <item>Westworld</item>
+        <item>Narcos</item>
+        <item>The Big Bang Theory</item>
+    </string-array>
+
+    <string-array name="art">
+        <item>3D and Animation</item>
+        <item>Art and Illustration</item>
+        <item>CAD</item>
+        <item>Graphic Design</item>
+        <item>Motion Graphics and VFX</item>
+        <item>Photography</item>
+        <item>User Experience</item>
+        <item>Video</item>
+        <item>Web Design</item>
+        <item>Painting</item>
+        <item>Drawing</item>
+        <item>Sculpture</item>
+    </string-array>
+
+
+    <string-array name="games">
+        <item>Action</item>
+        <item>Advanture</item>
+        <item>Arcade</item>
+        <item>Board</item>
+        <item>Card</item>
+        <item>Casino</item>
+        <item>Casual</item>
+        <item>Educational</item>
+        <item>Music</item>
+        <item>Puzzle</item>
+        <item>Racing</item>
+        <item>Role Playing</item>
+        <item>Simulation</item>
+        <item>Sports</item>
+        <item>Strategy</item>
+        <item>Trivia</item>
+        <item>Word</item>
+    </string-array>
+
+    <string-array name="countries">
+        <item>Afghanistan</item>
+        <item>Albania</item>
+        <item>Algeria</item>
+        <item>Andorra</item>
+        <item>Angola</item>
+        <item>Antigua and Barbuda</item>
+        <item>Argentina</item>
+        <item>Armenia</item>
+        <item>Australia</item>
+        <item>Austria</item>
+        <item>Azerbaijan</item>
+        <item>Bahamas</item>
+        <item>Bahrain</item>
+        <item>Bangladesh</item>
+        <item>Barbados</item>
+        <item>Botswana</item>
+        <item>Brazil</item>
+        <item>Brunei</item>
+        <item>Bulgaria</item>
+        <item>Burkina Faso</item>
+        <item>Burundi</item>
+        <item>Belarus</item>
+        <item>Belgium</item>
+        <item>Belize</item>
+        <item>Benin</item>
+        <item>Bhutan</item>
+        <item>Bolivia</item>
+        <item>Bosnia and Herzegovina</item>
+        <item>Cabo Verde</item>
+        <item>Cambodia</item>
+        <item>Cameroon</item>
+        <item>Canada</item>
+        <item>Central African Republic</item>
+        <item>Chad</item>
+        <item>Chile</item>
+        <item>China</item>
+        <item>Colombia</item>
+        <item>Comoros</item>
+        <item>Congo</item>
+        <item>Costa Rica</item>
+        <item>Croatia</item>
+        <item>Cuba</item>
+        <item>Cyprus</item>
+        <item>Czech Republic</item>
+        <item>Democratic Republic of the Congo</item>
+        <item>Denmark</item>
+        <item>Djibouti</item>
+        <item>Dominica</item>
+        <item>Dominican Republic</item>
+        <item>Ecuador</item>
+        <item>Egypt</item>
+        <item>El Salvador</item>
+        <item>Equatorial Guinea</item>
+        <item>Eritrea</item>
+        <item>Estonia</item>
+        <item>Ethiopia</item>
+        <item>Fiji</item>
+        <item>Finland</item>
+        <item>France</item>
+        <item>Gabon</item>
+        <item>Gambia</item>
+        <item>Georgia</item>
+        <item>Germany</item>
+        <item>Ghana</item>
+        <item>Greece</item>
+        <item>Grenada</item>
+        <item>Guatemala</item>
+        <item>Guinea</item>
+        <item>Guinea-Bissau</item>
+        <item>Guyana</item>
+        <item>Haiti</item>
+        <item>Holy See</item>
+        <item>Honduras</item>
+        <item>Hungary</item>
+        <item>Iceland</item>
+        <item>India</item>
+        <item>Indonesia</item>
+        <item>Iran</item>
+        <item>Iraq</item>
+        <item>Ireland</item>
+        <item>Israel</item>
+        <item>Italy</item>
+        <item>Jamaica</item>
+        <item>Japan</item>
+        <item>Jordan</item>
+        <item>Kazakhstan</item>
+        <item>Kenya</item>
+        <item>Kiribati</item>
+        <item>Kuwait</item>
+        <item>Kyrgyzstan</item>
+        <item>Laos</item>
+        <item>Latvia</item>
+        <item>Lebanon</item>
+        <item>Lesotho</item>
+        <item>Liberia</item>
+        <item>Libya</item>
+        <item>Liechtenstein</item>
+        <item>Lithuania</item>
+        <item>Luxembourg</item>
+        <item>Macedonia</item>
+        <item>Madagascar</item>
+        <item>Malawi</item>
+        <item>Malaysia</item>
+        <item>Maldives</item>
+        <item>Mali</item>
+        <item>Malta</item>
+        <item>Marshall Islands</item>
+        <item>Mauritania</item>
+        <item>Mauritius</item>
+        <item>Mexico</item>
+        <item>Micronesia</item>
+        <item>Moldova</item>
+        <item>Monaco</item>
+        <item>Mongolia</item>
+        <item>Montenegro</item>
+        <item>Morocco</item>
+        <item>Mozambique</item>
+        <item>Myanmar</item>
+        <item>Namibia</item>
+        <item>Nauru</item>
+        <item>Nepal</item>
+        <item>Netherlands</item>
+        <item>New Zealand</item>
+        <item>Nicaragua</item>
+        <item>Niger</item>
+        <item>Nigeria</item>
+        <item>North Korea</item>
+        <item>Norway</item>
+        <item>Oman</item>
+        <item>Pakistan</item>
+        <item>Palau</item>
+        <item>Palestine State</item>
+        <item>Panama</item>
+        <item>Papua New Guinea</item>
+        <item>Paraguay</item>
+        <item>Peru</item>
+        <item>Philippines</item>
+        <item>Poland</item>
+        <item>Portugal</item>
+        <item>Qatar</item>
+        <item>Romania</item>
+        <item>Russia</item>
+        <item>Rwanda</item>
+        <item>Saint Kitts and Nevis</item>
+        <item>Saint Lucia</item>
+        <item>Saint Vincent and the Grenadines</item>
+        <item>Samoa</item>
+        <item>San Marino</item>
+        <item>Sao Tome and Principe</item>
+        <item>Saudi Arabia</item>
+        <item>Senegal</item>
+        <item>Serbia</item>
+        <item>Seychelles</item>
+        <item>Sierra Leone</item>
+        <item>Singapore</item>
+        <item>Slovakia</item>
+        <item>Slovenia</item>
+        <item>Solomon Islands</item>
+        <item>Somalia</item>
+        <item>South Africa</item>
+        <item>South Korea</item>
+        <item>South Sudan</item>
+        <item>Spain</item>
+        <item>Sri Lanka</item>
+        <item>Sudan</item>
+        <item>Suriname</item>
+        <item>Swaziland</item>
+        <item>Sweden</item>
+        <item>Switzerland</item>
+        <item>Syria</item>
+        <item>Tajikistan</item>
+        <item>Tanzania</item>
+        <item>Thailand</item>
+        <item>Timor Leste</item>
+        <item>Togo</item>
+        <item>Tonga</item>
+        <item>Trinidad and Tobago</item>
+        <item>Tunisia</item>
+        <item>Turkey</item>
+        <item>Turkmenistan</item>
+        <item>Tuvalu</item>
+        <item>Uganda</item>
+        <item>Ukraine</item>
+        <item>United Arab Emirate</item>
+        <item>United Kingdom</item>
+        <item>United States of America</item>
+        <item>Uruguay</item>
+        <item>Uzbekistan</item>
+        <item>Vanuatu</item>
+        <item>Venezuela</item>
+        <item>Viet Nam</item>
+        <item>Yemen</item>
+        <item>Zambia</item>
+        <item>Zimbabwe</item>
+    </string-array>
+
+    <string-array name="bad_words">
+        <item>arse</item>
+        <item>ass</item>
+        <item>asshole</item>
+        <item>bastard</item>
+        <item>bitch</item>
+        <item>bollocks</item>
+        <item>child-fucker</item>
+        <item>Christ on a bike</item>
+        <item>Christ on a cracker</item>
+        <item>crap</item>
+        <item>cunt</item>
+        <item>damn</item>
+        <item>frigger</item>
+        <item>fuck</item>
+        <item>goddamn</item>
+        <item>godsdamn</item>
+        <item>hell</item>
+        <item>holy shit</item>
+        <item>Jesus</item>
+        <item>Jesus Christ</item>
+        <item>Jesus H. Christ</item>
+        <item>Jesus Harold Christ</item>
+        <item>Jesus wept</item>
+        <item>Jesus, Mary and Joseph</item>
+        <item>Judas Priest</item>
+        <item>motherfucker</item>
+        <item>nigga</item>
+        <item>nigger</item>
+        <item>shit</item>
+        <item>shit ass</item>
+        <item>shitass</item>
+        <item>son of a bitch</item>
+        <item>son of a motherless goat</item>
+        <item>son of a whore</item>
+        <item>sweet Jesus</item>
+        <item>twat</item>
+    </string-array>
+</resources>
