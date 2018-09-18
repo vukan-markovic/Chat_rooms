@@ -3,27 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/activity_horizontal_margin"
-    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginLeft="@dimen/margin"
+    android:layout_marginStart="@dimen/margin"
     android:background="@color/primary_light"
     android:orientation="horizontal"
-    android:padding="6dp">
+    android:padding="@dimen/padding">
 
     <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/profile_picture_message"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center_vertical"
+        android:layout_width="@dimen/profile_picture_width"
+        android:layout_height="@dimen/profile_picture_height"
+        android:layout_gravity="bottom"
         android:contentDescription="@string/profile_picture"
         app:civ_border_color="@color/accent"
-        app:civ_border_width="2dp"
+        app:civ_border_width="@dimen/civ_border_width"
         tools:src="@android:mipmap/sym_def_app_icon" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="6dp">
+        android:padding="@dimen/padding">
 
         <TextView
             android:id="@+id/message"
@@ -32,7 +32,7 @@
             android:autoLink="all"
             android:contentDescription="@string/message"
             android:enabled="true"
-            android:fontFamily="casual"
+            android:fontFamily="@font/architects_daughter"
             android:linksClickable="true"
             android:longClickable="true"
             android:maxLength="500"
@@ -62,7 +62,7 @@
             android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="casual"
+            android:fontFamily="@font/yatra_one"
             android:textColor="@android:color/holo_orange_dark"
             android:textStyle="bold"
             tools:text="Time" />

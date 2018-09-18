@@ -4,8 +4,9 @@
     android:id="@+id/recycler_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/accent"
     android:divider="@android:color/transparent"
-    android:dividerHeight="16dp"
+    android:dividerHeight="@dimen/margin"
     android:stackFromBottom="true"
     android:transcriptMode="alwaysScroll"
     tools:listitem="@layout/item_subcategory" />

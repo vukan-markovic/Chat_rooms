@@ -20,11 +20,48 @@
         <item>NEM</item>
         <item>Tezos</item>
         <item>Zcash</item>
+        <item>Stellar</item>
+        <item>Dogecoin</item>
+        <item>VeChain</item>
+        <item>Zcash</item>
+        <item>OmiseGO</item>
+        <item>Lisk</item>
+        <item>Bitcoin Gold</item>
+        <item>Bytecoin</item>
+        <item>Ontology</item>
+        <item>Decred</item>
+        <item>Nano</item>
+        <item>BitShares</item>
+        <item>0x</item>
+        <item>Qtum</item>
+        <item>Maker</item>
+        <item>Bitcoin Diamond</item>
+        <item>DigiByte</item>
+        <item>Zilliqa</item>
+        <item>ICON</item>
+        <item>Waves</item>
+        <item>Aeternity</item>
+        <item>Steem</item>
+        <item>Verge</item>
+        <item>Siacoin</item>
+        <item>Bytom</item>
+        <item>Metaverse ETP</item>
+        <item>Aurora</item>
+        <item>Pundi X</item>
+        <item>Augur</item>
+        <item>Holo</item>
+        <item>Stratis</item>
+        <item>Waltonchain</item>
+        <item>Golem</item>
+        <item>Populous</item>
+        <item>Status</item>
+        <item>Cryptonex</item>
+        <item>Komodo</item>
+        <item>MOAC</item>
     </string-array>
 
     <string-array name="technologies">
         <item>HTML</item>
-        <item>CSS</item>
         <item>Javascript</item>
         <item>C++</item>
         <item>Java</item>
@@ -44,6 +81,48 @@
         <item>Machine learning</item>
         <item>Android</item>
         <item>R</item>
+        <item>ActionScript</item>
+        <item>Ada</item>
+        <item>Alice</item>
+        <item>Assembly language</item>
+        <item>Bash</item>
+        <item>Basic</item>
+        <item>Charm</item>
+        <item>Clojure</item>
+        <item>COBOL</item>
+        <item>CoffeeScript</item>
+        <item>Curl</item>
+        <item>D</item>
+        <item>Dart</item>
+        <item>Delphi</item>
+        <item>ECMAScript</item>
+        <item>Elixir</item>
+        <item>F</item>
+        <item>Fortran</item>
+        <item>G</item>
+        <item>Go</item>
+        <item>Groovy</item>
+        <item>Haskell</item>
+        <item>J</item>
+        <item>JScript</item>
+        <item>JavaFX Script</item>
+        <item>Julia</item>
+        <item>Lisp</item>
+        <item>LiveScript</item>
+        <item>Lua</item>
+        <item>MATLAB</item>
+        <item>Objective C</item>
+        <item>Pascal</item>
+        <item>Perl</item>
+        <item>PHP</item>
+        <item>PowerShell</item>
+        <item>Q</item>
+        <item>Scala</item>
+        <item>Scratch</item>
+        <item>Smalltalk</item>
+        <item>Typescript</item>
+        <item>Unix shell</item>
+        <item>Visual Basic</item>
     </string-array>
 
     <string-array name="sports">
@@ -59,6 +138,52 @@
         <item>Cricket</item>
         <item>Baseball</item>
         <item>Swimming</item>
+        <item>Gymnastics</item>
+        <item>Aerobatics</item>
+        <item>Archery</item>
+        <item>Badminton</item>
+        <item>Table tennis</item>
+        <item>Volleyball</item>
+        <item>Softball</item>
+        <item>Skateboarding</item>
+        <item>Scootering</item>
+        <item>Snowboarding</item>
+        <item>Surfing</item>
+        <item>Climbing</item>
+        <item>Cycling</item>
+        <item>Aikido</item>
+        <item>Judo</item>
+        <item>Wrestling</item>
+        <item>Boxing</item>
+        <item>Karate</item>
+        <item>Kickboxing</item>
+        <item>Taekwondo</item>
+        <item>MMA</item>
+        <item>Snooker</item>
+        <item>Billiard</item>
+        <item>Horse racing</item>
+        <item>Fishing</item>
+        <item>American football</item>
+        <item>Golf</item>
+        <item>Handball</item>
+        <item>Hunting</item>
+        <item>Curling</item>
+        <item>Figure skating</item>
+        <item>Ice dancing</item>
+        <item>Running</item>
+        <item>Sailing</item>
+        <item>Skiing</item>
+        <item>Ski jumping</item>
+        <item>Polo</item>
+        <item>Walking</item>
+        <item>Formula One</item>
+        <item>MotoGP</item>
+        <item>Athletics</item>
+        <item>Weightlifting</item>
+        <item>Diving</item>
+        <item>Kayaking</item>
+        <item>Canoeing</item>
+        <item>Rafting</item>
     </string-array>
 
     <string-array name="movies">
@@ -77,6 +202,54 @@
         <item>Spirits</item>
         <item>Gothams</item>
         <item>Critics Choice</item>
+        <item>Alliance of Women Film Journalists</item>
+        <item>American Film Institute</item>
+        <item>Austin Film Critics Association</item>
+        <item>Behind the Voice Actors Award</item>
+        <item>Black Film Critics Circle</item>
+        <item>Boston Society of Film Critics</item>
+        <item>Broadcast Film Critics Association</item>
+        <item>Central Ohio Film Critics Association</item>
+        <item>Chicago Film Critics Association</item>
+        <item>Dallas-Fort Worth Film Critics Association</item>
+        <item>Denver Film Critics Society</item>
+        <item>Detroit Film Critics Society</item>
+        <item>Florida Film Critics Circle</item>
+        <item>Gay and Lesbian Entertainment Critics Association</item>
+        <item>Georgia Film Critics Association</item>
+        <item>Golden Raspberry Awards</item>
+        <item>Gotham Awards</item>
+        <item>Houston Film Critics Society</item>
+        <item>Indiana Film Journalists Association</item>
+        <item>Iowa Film Critics</item>
+        <item>Las Vegas Film Critics Society</item>
+        <item>Los Angeles Film Critics Association</item>
+        <item>Maverick Movie Awards</item>
+        <item>Murray Film Critics Circle Awards</item>
+        <item>National Association of Film Critics</item>
+        <item>National Society of Film Critics</item>
+        <item> National Board of Review</item>
+        <item>New York Film Critics Circle</item>
+        <item>New York Film Critics Online</item>
+        <item>Nollywood and African Film Critics Awards</item>
+        <item>North American Film Awards</item>
+        <item>North Carolina Film Critics Association</item>
+        <item>North Texas Film Critics Association</item>
+        <item>Oklahoma Film Critics Circle Awards</item>
+        <item>Political Film Society</item>
+        <item>San Diego Film Awards</item>
+        <item>San Diego Film Critics Society</item>
+        <item>San Francisco Film Critics Circle</item>
+        <item>Seattle Film Critics Society</item>
+        <item>St. Louis Gateway Film Critics Association</item>
+        <item>Village Voice Film Poll</item>
+        <item>NYU Tisch School of the Arts Wasserman Award</item>
+        <item>Washington D.C. Area Film Critics Association</item>
+        <item>X-Rated Critics Organization Heart-On Awards</item>
+        <item>National Film Awards UK</item>
+        <item>Evening Standard British Film Awards</item>
+        <item>London Film Critics Circle</item>
+        <item>National Movie Awards</item>
     </string-array>
 
     <string-array name="music">
@@ -98,6 +271,15 @@
         <item>Soundtracks</item>
         <item>Vocal</item>
         <item>World</item>
+        <item>Soul</item>
+        <item>Latin</item>
+        <item>Easy listening</item>
+        <item>Caribbean and Caribbean influenced</item>
+        <item>Avant garde</item>
+        <item>Asian</item>
+        <item>East Asian</item>
+        <item>South and southeast Asian</item>
+        <item>African</item>
     </string-array>
 
     <string-array name="series">
@@ -112,6 +294,49 @@
         <item>Westworld</item>
         <item>Narcos</item>
         <item>The Big Bang Theory</item>
+        <item>Band of Brothers</item>
+        <item>Planet Earth</item>
+        <item>The Wire</item>
+        <item>The Sopranos</item>
+        <item>The World at War</item>
+        <item>Life</item>
+        <item>Human Planet</item>
+        <item>The Vietnam War</item>
+        <item>The Twilight Zone</item>
+        <item>Last Week Tonight with John Oliver</item>
+        <item>Death Note</item>
+        <item>One Punch Man</item>
+        <item>Black Mirror</item>
+        <item>Friends</item>
+        <item>Only Fools and Horses</item>
+        <item>Twin Peaks</item>
+        <item>Over the Garden Wall</item>
+        <item>Gravity Falls</item>
+        <item>Cobra Kai</item>
+        <item>Sacred Games </item>
+        <item>TVF Pitchers</item>
+        <item>The Office</item>
+        <item>Peaky Blinders</item>
+        <item>Rome</item>
+        <item>The Simpsons</item>
+        <item>South Park</item>
+        <item>Dragon Ball Z</item>
+        <item>Better Call Saul</item>
+        <item>Top Gear</item>
+        <item>Dexter</item>
+        <item>Doctor Who</item>
+        <item>Star Trek</item>
+        <item>Justice League</item>
+        <item>The Handmaids Tale </item>
+        <item>Vikings</item>
+        <item>Silicon Valley</item>
+        <item>Mr Bean</item>
+        <item>Mr Robot</item>
+        <item>Hannibal</item>
+        <item>American Crime Story</item>
+        <item>X men</item>
+        <item>Suits</item>
+        <item>Lost</item>
     </string-array>
 
     <string-array name="art">
@@ -126,9 +351,27 @@
         <item>Web Design</item>
         <item>Painting</item>
         <item>Drawing</item>
-        <item>Sculpture</item>
+        <item>Photoshop</item>
+        <item>Illustrator</item>
+        <item>After Effects</item>
+        <item>InDesign</item>
+        <item>Premiere Pro</item>
+        <item>Lightroom</item>
+        <item>CINEMA 4D</item>
+        <item>Maya</item>
+        <item>Final Cut Pro</item>
+        <item>AutoCAD</item>
+        <item>3ds Max</item>
+        <item>Revit</item>
+        <item>Pro Tools</item>
+        <item>CSS</item>
+        <item>SOLIDWORKS</item>
+        <item>Rhino</item>
+        <item>Sketch</item>
+        <item>Dreamweaver</item>
+        <item>Adobe Animate</item>
+        <item>Adobe XD</item>
     </string-array>
-
 
     <string-array name="games">
         <item>Action</item>
@@ -148,6 +391,31 @@
         <item>Strategy</item>
         <item>Trivia</item>
         <item>Word</item>
+        <item>Platform games</item>
+        <item>Shooter games</item>
+        <item>Fighting games</item>
+        <item>Beat them up games</item>
+        <item>Stealth game</item>
+        <item>Survival games</item>
+        <item>Rhythm games</item>
+        <item>Survival horror</item>
+        <item>Metroidvania</item>
+        <item>Text adventures</item>
+        <item>Graphic adventures</item>
+        <item>Visual novels</item>
+        <item>Interactive movie</item>
+        <item>Real time 3D adventures</item>
+        <item>Action RPG</item>
+        <item>MMORPG</item>
+        <item>Fantasy</item>
+        <item>Wargame</item>
+        <item>MMO</item>
+        <item>Party games</item>
+        <item>Programming games</item>
+        <item>Logic games</item>
+        <item>Art game</item>
+        <item>Educational game</item>
+        <item>Electronic sports</item>
     </string-array>
 
     <string-array name="countries">

@@ -18,44 +18,46 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class UpdateProfileActivity extends AppCompatActivity {
-    private EditText name;
     private static final int RC_PHOTO_PICKER = 1;
     @Nullable
-    private Uri selectedImageUri;
-    private Animation animation;
+    private Uri mSelectedImageUri;
+    private Animation mAnimation;
+    @Nullable
+    private EditText mName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_profile);
-        name = findViewById(R.id.update_username);
+        mName = findViewById(R.id.update_username);
         ImageButton photo = findViewById(R.id.photo);
-        name.setText(getIntent().getStringExtra(MainActivity.USERNAME));
-        animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
-        animation.setDuration(100);
+        if (getIntent().hasExtra(MainActivity.USERNAME) && mName != null)
+            mName.setText(getIntent().getStringExtra(MainActivity.USERNAME));
+        mAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
+        mAnimation.setDuration(100);
 
         photo.setOnClickListener(view -> {
-            view.startAnimation(animation);
+            view.startAnimation(mAnimation);
             Intent intent1 = new Intent(Intent.ACTION_GET_CONTENT);
             intent1.setType("image/jpeg");
             intent1.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
-            startActivityForResult(Intent.createChooser(intent1, "Complete action using"), RC_PHOTO_PICKER);
+            startActivityForResult(Intent.createChooser(intent1, getString(R.string.photo_picker_title)), RC_PHOTO_PICKER);
         });
     }
 
     public void changeProfile(@NonNull View view) {
-        view.startAnimation(animation);
-        if (name.length() != 0 && !name.getText().toString().equals("") && !name.getText().toString().isEmpty()) {
+        view.startAnimation(mAnimation);
+        if (mName != null && mName.length() != 0 && !mName.getText().toString().equals("") && !mName.getText().toString().isEmpty()) {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             UserProfileChangeRequest.Builder builder = new UserProfileChangeRequest.Builder();
-            builder.setDisplayName(name.getText().toString());
-            if (selectedImageUri != null) builder.setPhotoUri(selectedImageUri);
+            builder.setDisplayName(mName.getText().toString());
+            if (mSelectedImageUri != null) builder.setPhotoUri(mSelectedImageUri);
 
             if (user != null) {
                 user.updateProfile(builder.build())
                         .addOnCompleteListener(task -> {
                             if (task.isSuccessful()) {
-                                Toast.makeText(this, "Profile updated", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(this, R.string.profile_updated, Toast.LENGTH_SHORT).show();
                                 finish();
                             }
                         });
@@ -67,6 +69,6 @@ public class UpdateProfileActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RC_PHOTO_PICKER && resultCode == RESULT_OK)
-            if (data != null) selectedImageUri = data.getData();
+            if (data != null) mSelectedImageUri = data.getData();
     }
 }
