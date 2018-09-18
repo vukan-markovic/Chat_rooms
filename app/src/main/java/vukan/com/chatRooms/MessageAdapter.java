@@ -27,7 +27,6 @@ class MessageAdapter extends ArrayAdapter<Message> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         if (convertView == null)
             convertView = ((Activity) getContext()).getLayoutInflater().inflate(R.layout.item_message, parent, false);
-
         CircleImageView profileImageView = convertView.findViewById(R.id.profile_picture_message);
         TextView messageTextView = convertView.findViewById(R.id.message);
         TextView authorTextView = convertView.findViewById(R.id.name);

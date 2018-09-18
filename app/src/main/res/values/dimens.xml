@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="margin">16dp</dimen>
+    <dimen name="padding">6dp</dimen>
+    <dimen name="width">36dp</dimen>
+    <dimen name="text_size">18sp</dimen>
+    <dimen name="zero">0dp</dimen>
+    <dimen name="image_padding">10dp</dimen>
+    <dimen name="series_padding">44dp</dimen>
+    <dimen name="profile_picture_width">40dp</dimen>
+    <dimen name="profile_picture_height">40dp</dimen>
+    <dimen name="civ_border_width">2dp</dimen>
 </resources>

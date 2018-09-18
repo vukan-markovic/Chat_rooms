@@ -25,48 +25,50 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Objects;
 import java.util.regex.Pattern;
 
 public class ChatActivity extends AppCompatActivity {
     private static final String ANONYMOUS = "anonymous";
     private static final int DEFAULT_MSG_LENGTH_LIMIT = 500;
     private MessageAdapter mMessageAdapter;
-    private EditText messageEnter;
+    private EditText mMessageEnter;
     private Button mSendButton;
     private String mUsername;
-    private SoundHelper sound;
+    private SoundHelper mSound;
     private DatabaseReference mMessagesDatabaseReference;
     @Nullable
     private ChildEventListener mChildEventListener;
-    private Intent intent;
-    private String message;
-    private List<String> words;
-    private Animation animation;
+    private Intent mIntent;
+    private String mMessage;
+    private List<String> mWords;
+    private Animation mAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        intent = getIntent();
+        setContentView(R.layout.activity_chat);
+        mIntent = getIntent();
         mUsername = ANONYMOUS;
-        words = Arrays.asList(getResources().getStringArray(R.array.bad_words));
-        if (intent.hasExtra(SubCategoriesActivity.CATEGORY) && intent.hasExtra(SubCategoriesActivity.SUBCATEGORY))
-            mMessagesDatabaseReference = FirebaseDatabase.getInstance().getReference().child(intent.getStringExtra(SubCategoriesActivity.CATEGORY) + "/" + intent.getStringExtra(SubCategoriesActivity.SUBCATEGORY));
-        setTitle(intent.getStringExtra(SubCategoriesActivity.SUBCATEGORY));
+        mWords = Arrays.asList(getResources().getStringArray(R.array.bad_words));
+        if (mIntent.hasExtra(SubCategoriesActivity.CATEGORY) && mIntent.hasExtra(SubCategoriesActivity.SUBCATEGORY))
+            mMessagesDatabaseReference = FirebaseDatabase.getInstance().getReference().child(mIntent.getStringExtra(SubCategoriesActivity.CATEGORY) + "/" + mIntent.getStringExtra(SubCategoriesActivity.SUBCATEGORY));
+        mMessagesDatabaseReference.keepSynced(true);
+        setTitle(mIntent.getStringExtra(SubCategoriesActivity.SUBCATEGORY));
         ListView mMessageListView = findViewById(R.id.message_list_view);
         ViewGroup relativeLayout = findViewById(R.id.relative_layout);
-        messageEnter = findViewById(R.id.messageEnter);
+        mMessageEnter = findViewById(R.id.messageEnter);
         mSendButton = findViewById(R.id.send);
         List<Message> messages = new ArrayList<>();
         mMessageAdapter = new MessageAdapter(this, messages);
         mMessageListView.setAdapter(mMessageAdapter);
-        if (intent.hasExtra(SubCategoriesActivity.USER))
-            mUsername = intent.getStringExtra(SubCategoriesActivity.USER);
-        sound = new SoundHelper(this);
+        if (mIntent.hasExtra(SubCategoriesActivity.USER))
+            mUsername = mIntent.getStringExtra(SubCategoriesActivity.USER);
+        mSound = new SoundHelper(this);
+        mAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
+        mAnimation.setDuration(200);
         attachDatabaseReadListener();
 
-        messageEnter.addTextChangedListener(new TextWatcher() {
+        mMessageEnter.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
             }
@@ -82,53 +84,54 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
-        messageEnter.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
+        mMessageEnter.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
 
         mSendButton.setOnClickListener(view -> {
-            animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
-            view.startAnimation(animation);
-            animation.setDuration(200);
-            if (messageEnter.length() != 0 && !messageEnter.getText().toString().equals("") && !messageEnter.getText().toString().isEmpty()) {
-                message = messageEnter.getText().toString().trim();
-                for (String word : words)
-                    message = Pattern.compile("\\b" + word + "\\b", Pattern.CASE_INSENSITIVE).matcher(message).replaceAll(new String(new char[word.length()]).replace('\0', '*'));
-                mMessagesDatabaseReference.push().setValue(new Message(message, mUsername, Objects.requireNonNull(intent.getData()).toString(), Calendar.getInstance().getTime().toString()));
-                sound.playSound();
-                messageEnter.setText("");
+            view.startAnimation(mAnimation);
+            if (mMessageEnter.length() != 0 && !mMessageEnter.getText().toString().equals("") && !mMessageEnter.getText().toString().isEmpty()) {
+                mMessage = mMessageEnter.getText().toString().trim();
+                for (String word : mWords)
+                    mMessage = Pattern.compile("\\b" + word + "\\b", Pattern.CASE_INSENSITIVE).matcher(mMessage).replaceAll(new String(new char[word.length()]).replace('\0', '*'));
+                if (mIntent.getData() != null)
+                    mMessagesDatabaseReference.push().setValue(new Message(mMessage, mUsername, mIntent.getData().toString(), Calendar.getInstance().getTime().toString()));
+                mSound.playSound();
+                mMessageEnter.setText("");
             }
         });
 
-        switch (intent.getStringExtra(SubCategoriesActivity.CATEGORY)) {
-            case "sport":
-                relativeLayout.setBackgroundResource(R.drawable.chat_background_6);
-                break;
-            case "economy":
-                relativeLayout.setBackgroundResource(R.drawable.chat_background_1);
-                break;
-            case "movies":
-                relativeLayout.setBackgroundResource(R.drawable.chat_background_2);
-                break;
-            case "technology":
-                relativeLayout.setBackgroundResource(R.drawable.chat_background_3);
-                break;
-            case "art":
-                relativeLayout.setBackgroundResource(R.drawable.chat_background_4);
-                break;
-            case "music":
-                relativeLayout.setBackgroundResource(R.drawable.chat_background_5);
-                break;
-            case "games":
-                relativeLayout.setBackgroundResource(R.drawable.chat_background);
-                break;
-            case "series":
-                relativeLayout.setBackgroundResource(R.drawable.chat_background_7);
-                break;
-            case "countries":
-                relativeLayout.setBackgroundResource(R.drawable.chat_background_8);
-                break;
-            default:
-                relativeLayout.setBackgroundResource(R.drawable.chat_background);
-                break;
+        if (mIntent.hasExtra(SubCategoriesActivity.CATEGORY)) {
+            switch (mIntent.getStringExtra(SubCategoriesActivity.CATEGORY)) {
+                case "games":
+                    relativeLayout.setBackgroundResource(R.drawable.chat_background);
+                    break;
+                case "economy":
+                    relativeLayout.setBackgroundResource(R.drawable.chat_background_1);
+                    break;
+                case "movies":
+                    relativeLayout.setBackgroundResource(R.drawable.chat_background_2);
+                    break;
+                case "technology":
+                    relativeLayout.setBackgroundResource(R.drawable.chat_background_3);
+                    break;
+                case "art":
+                    relativeLayout.setBackgroundResource(R.drawable.chat_background_4);
+                    break;
+                case "music":
+                    relativeLayout.setBackgroundResource(R.drawable.chat_background_5);
+                    break;
+                case "sport":
+                    relativeLayout.setBackgroundResource(R.drawable.chat_background_6);
+                    break;
+                case "series":
+                    relativeLayout.setBackgroundResource(R.drawable.chat_background_7);
+                    break;
+                case "countries":
+                    relativeLayout.setBackgroundResource(R.drawable.chat_background_8);
+                    break;
+                default:
+                    relativeLayout.setBackgroundResource(R.drawable.chat_background);
+                    break;
+            }
         }
     }
 
@@ -164,6 +167,7 @@ public class ChatActivity extends AppCompatActivity {
                 public void onCancelled(@NonNull DatabaseError databaseError) {
                 }
             };
+
             mMessagesDatabaseReference.addChildEventListener(mChildEventListener);
         }
     }

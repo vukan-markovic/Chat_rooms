@@ -8,10 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.Arrays;
+
 public class SubCategoriesAdapter extends RecyclerView.Adapter<SubCategoriesAdapter.SubCategoriesHolder> {
 
     private final int mNumbersItems;
-    private String[] subcategories;
+    private String[] mSubcategories;
 
     SubCategoriesAdapter(int numberOfItems, ListItemClickListener listener, @NonNull String category, @NonNull Context context) {
         mNumbersItems = numberOfItems;
@@ -19,39 +21,41 @@ public class SubCategoriesAdapter extends RecyclerView.Adapter<SubCategoriesAdap
 
         switch (category) {
             case "sport":
-                subcategories = context.getResources().getStringArray(R.array.sports);
+                mSubcategories = context.getResources().getStringArray(R.array.sports);
                 break;
             case "technology":
-                subcategories = context.getResources().getStringArray(R.array.technologies);
+                mSubcategories = context.getResources().getStringArray(R.array.technologies);
                 break;
             case "movies":
-                subcategories = context.getResources().getStringArray(R.array.movies);
+                mSubcategories = context.getResources().getStringArray(R.array.movies);
                 break;
             case "series":
-                subcategories = context.getResources().getStringArray(R.array.series);
+                mSubcategories = context.getResources().getStringArray(R.array.series);
                 break;
             case "economy":
-                subcategories = context.getResources().getStringArray(R.array.crypto_currency);
+                mSubcategories = context.getResources().getStringArray(R.array.crypto_currency);
                 break;
             case "art":
-                subcategories = context.getResources().getStringArray(R.array.art);
+                mSubcategories = context.getResources().getStringArray(R.array.art);
                 break;
             case "music":
-                subcategories = context.getResources().getStringArray(R.array.music);
+                mSubcategories = context.getResources().getStringArray(R.array.music);
                 break;
             case "games":
-                subcategories = context.getResources().getStringArray(R.array.games);
+                mSubcategories = context.getResources().getStringArray(R.array.games);
                 break;
             case "countries":
-                subcategories = context.getResources().getStringArray(R.array.countries);
+                mSubcategories = context.getResources().getStringArray(R.array.countries);
                 break;
         }
+
+        Arrays.sort(mSubcategories);
     }
 
     final private ListItemClickListener mOnClickListener;
 
     String[] getSubcategories() {
-        return subcategories;
+        return mSubcategories;
     }
 
     @NonNull
@@ -80,7 +84,7 @@ public class SubCategoriesAdapter extends RecyclerView.Adapter<SubCategoriesAdap
         }
 
         void bind(int listIndex) {
-            subcategory.setText(subcategories[listIndex]);
+            subcategory.setText(mSubcategories[listIndex]);
             if (listIndex % 2 == 0)
                 subcategory.setBackgroundResource(R.drawable.recycler_view_selector_1);
             else subcategory.setBackgroundResource(R.drawable.recycler_view_selector_2);

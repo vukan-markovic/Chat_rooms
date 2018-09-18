@@ -3,14 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="vukan.com.chatRooms">
 
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
+        android:appCategory="social"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
+        android:isGame="false"
         android:label="@string/app_name"
+        android:logo="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:targetApi="o">
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
@@ -22,25 +30,34 @@
 
         <activity
             android:name=".ChatRulesActivity"
-            android:label="Chat rules"
-            android:parentActivityName=".MainActivity" />
+            android:label="@string/chat_rules_activity"
+            android:parentActivityName=".MainActivity"
+            android:rotationAnimation="crossfade" />
 
         <activity
             android:name=".SubCategoriesActivity"
-            android:label="Subcategories"
-            android:parentActivityName=".MainActivity" />
+            android:label="@string/subcategories_activity"
+            android:parentActivityName=".MainActivity"
+            android:rotationAnimation="crossfade" />
 
         <activity
             android:name=".ChatActivity"
-            android:label="Chat"
-            android:parentActivityName=".SubCategoriesActivity" />
+            android:colorMode="hdr"
+            android:label="@string/chat_activity"
+            android:parentActivityName=".SubCategoriesActivity"
+            android:rotationAnimation="crossfade" />
 
         <activity
-            android:name=".UpdateProfileActivity"
-            android:label="Update profile"
-            android:parentActivityName=".MainActivity" />
 
-        <activity android:name=".MainActivity">
+            android:name=".UpdateProfileActivity"
+            android:label="@string/update_profile_activity"
+            android:parentActivityName=".MainActivity"
+            android:rotationAnimation="crossfade" />
+
+        <activity
+            android:name=".MainActivity"
+            android:colorMode="wideColorGamut"
+            android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
