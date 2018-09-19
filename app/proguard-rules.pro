@@ -30,7 +30,6 @@
 -keep public class * implements com.bumptech.glide.module.GlideModule
 -keep public class * extends com.bumptech.glide.module.AppGlideModule
 -printmapping mapping.txt
--keepresourcexmlelements manifest/application/meta-data@value=GlideModule
 -renamesourcefileattribute SourceFile
 
 -keepclasseswithmembers class * {

@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
@@ -19,7 +20,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
-import com.firebase.ui.auth.ErrorCodes;
 import com.firebase.ui.auth.IdpResponse;
 import com.google.android.gms.appinvite.AppInviteInvitation;
 import com.google.firebase.auth.FirebaseAuth;
@@ -47,12 +47,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
+        animation.setDuration(100);
+        FirebaseDynamicLinks.getInstance().getDynamicLink(getIntent()).addOnFailureListener(this, e -> Toast.makeText(this, R.string.dynamic_link_fail, Toast.LENGTH_SHORT).show());
 
         if (!isConnected()) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this)
                     .setTitle(R.string.internet_connection)
                     .setMessage(R.string.wi_fi)
-                    .setCancelable(false);
+                    .setCancelable(false)
+                    .setIcon(R.drawable.signal_wifi_off);
             builder.setPositiveButton(android.R.string.yes, (dialog, which) -> {
                 WifiManager wifiManager = (WifiManager) this.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
                 if (wifiManager != null) wifiManager.setWifiEnabled(true);
@@ -62,29 +66,19 @@ public class MainActivity extends AppCompatActivity {
             builder.show();
         }
 
-        FirebaseDynamicLinks.getInstance().getDynamicLink(getIntent()).addOnFailureListener(this, e -> Toast.makeText(this, R.string.dynamic_link_fail, Toast.LENGTH_SHORT).show());
-
         mFirebaseAuth = FirebaseAuth.getInstance();
         mAuthStateListener = firebaseAuth -> {
             mFirebaseUser = firebaseAuth.getCurrentUser();
             if (mFirebaseUser == null) {
-                startActivityForResult(
-                        AuthUI.getInstance()
-                                .createSignInIntentBuilder()
-                                .setIsSmartLockEnabled(true, true)
-                                .setAvailableProviders(Arrays.asList(
-                                        new AuthUI.IdpConfig.FacebookBuilder().build(),
-                                        new AuthUI.IdpConfig.TwitterBuilder().build(),
-                                        new AuthUI.IdpConfig.GoogleBuilder().build()))
-                                .setTheme(R.style.GreenTheme)
-                                .setLogo(R.mipmap.ic_launcher)
-                                .build(),
-                        RC_SIGN_IN);
+                startActivityForResult(AuthUI.getInstance()
+                        .createSignInIntentBuilder()
+                        .setIsSmartLockEnabled(true, true)
+                        .setAvailableProviders(Arrays.asList(new AuthUI.IdpConfig.FacebookBuilder().build(), new AuthUI.IdpConfig.TwitterBuilder().build(), new AuthUI.IdpConfig.GoogleBuilder().build()))
+                        .setTheme(R.style.GreenTheme)
+                        .setLogo(R.mipmap.ic_launcher)
+                        .build(), RC_SIGN_IN);
             }
         };
-
-        animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
-        animation.setDuration(100);
     }
 
     @Override
@@ -92,28 +86,9 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == RC_SIGN_IN) {
-            IdpResponse response = IdpResponse.fromResultIntent(data);
-            switch (resultCode) {
-                case RESULT_OK:
-                    if (mFirebaseUser != null)
-                        Toast.makeText(this, R.string.signed_in + mFirebaseUser.getDisplayName(), Toast.LENGTH_SHORT).show();
-                    break;
-                case RESULT_CANCELED:
-                    Toast.makeText(this, R.string.signed_out, Toast.LENGTH_SHORT).show();
-                    finish();
-                    break;
-                default:
-                    if (response == null) {
-                        Toast.makeText(this, R.string.signed_in_cancelled, Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                    if (response.getError() != null && response.getError().getErrorCode() == ErrorCodes.NO_NETWORK) {
-                        Toast.makeText(this, R.string.no_internet, Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                    Toast.makeText(this, R.string.error, Toast.LENGTH_SHORT).show();
-                    break;
-            }
+            if (resultCode == RESULT_OK)
+                Toast.makeText(this, R.string.signed_in, Toast.LENGTH_SHORT).show();
+            else if (IdpResponse.fromResultIntent(data) == null) finish();
         } else if (requestCode == REQUEST_INVITE)
             if (resultCode == RESULT_CANCELED)
                 Toast.makeText(this, R.string.invitation, Toast.LENGTH_SHORT).show();
@@ -161,7 +136,8 @@ public class MainActivity extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this)
                         .setTitle(R.string.delete_account)
                         .setMessage(R.string.confirm)
-                        .setCancelable(false);
+                        .setCancelable(false)
+                        .setIcon(R.drawable.delete);
                 builder.setPositiveButton(android.R.string.yes, (dialog, which) -> AuthUI.getInstance()
                         .delete(this)
                         .addOnCompleteListener(task -> Toast.makeText(this, R.string.account_deleted, Toast.LENGTH_SHORT).show()));
@@ -243,15 +219,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean isConnected() {
-        ConnectivityManager connection = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
-
-        if (connection != null) {
-            if (connection.getNetworkInfo(0).getState() == android.net.NetworkInfo.State.CONNECTED || connection.getNetworkInfo(0).getState() == android.net.NetworkInfo.State.CONNECTING || connection.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.CONNECTING || connection.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.CONNECTED)
-                return true;
-            else if (connection.getNetworkInfo(0).getState() == android.net.NetworkInfo.State.DISCONNECTED || connection.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.DISCONNECTED)
-                return false;
-        }
-
-        return false;
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }

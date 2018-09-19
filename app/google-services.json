@@ -15,11 +15,19 @@
       },
       "oauth_client": [
         {
-          "client_id": "32996973342-gf8hkdhet5msdtdhe8tjt034kb3mp0s4.apps.googleusercontent.com",
+          "client_id": "32996973342-ugjpdhlro9cu2ctgp7v2qhibotaumssa.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "vukan.com.chatRooms",
-            "certificate_hash": "2fc3d6837f8ea6fec881433bc1c920776737b652"
+            "certificate_hash": "9b40e312be3e5162e5c7035860d7721d0e62e44f"
+          }
+        },
+        {
+          "client_id": "32996973342-kid45i7erbts1rsrburkvls8eco4s5a4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "vukan.com.chatRooms",
+            "certificate_hash": "6819307b759c8d0cf1c75e81508e281e406d0f4b"
           }
         },
         {

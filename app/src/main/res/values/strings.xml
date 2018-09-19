@@ -34,9 +34,8 @@
     <string name="confirm">Are you sure?</string>
     <string name="account_deleted">Your account is deleted :(</string>
     <string name="signed_in_cancelled">Sign in cancelled!</string>
-    <string name="no_internet">No internet connection</string>
     <string name="error">Unknown error</string>
-    <string name="signed_in">Welcome </string>
+    <string name="signed_in">Welcome to Chat Rooms :)</string>
     <string name="profile_updated">Profile updated</string>
     <string name="photo_picker_title">Complete action using</string>
     <string name="chat_rules_activity">Chat rules</string>
