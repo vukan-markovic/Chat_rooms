@@ -1,3 +1,4 @@
 # Chat_rooms
 Android app with public chat rooms about different topics. 
-https://play.google.com/store/apps/details?id=vukan.com.chatRooms
+
+http://a.co/d/dEEt6vL
