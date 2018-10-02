@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -30,16 +31,15 @@ import java.util.regex.Pattern;
 public class ChatActivity extends AppCompatActivity {
     private static final String ANONYMOUS = "anonymous";
     private static final int DEFAULT_MSG_LENGTH_LIMIT = 500;
+    private String mUsername;
     private MessageAdapter mMessageAdapter;
     private EditText mMessageEnter;
     private Button mSendButton;
-    private String mUsername;
     private SoundHelper mSound;
     private DatabaseReference mMessagesDatabaseReference;
     @Nullable
     private ChildEventListener mChildEventListener;
     private Intent mIntent;
-    private String mMessage;
     private List<String> mWords;
     private Animation mAnimation;
 
@@ -50,10 +50,12 @@ public class ChatActivity extends AppCompatActivity {
         mIntent = getIntent();
         mUsername = ANONYMOUS;
         mWords = Arrays.asList(getResources().getStringArray(R.array.bad_words));
-        if (mIntent.hasExtra(SubCategoriesActivity.CATEGORY) && mIntent.hasExtra(SubCategoriesActivity.SUBCATEGORY))
+
+        if (mIntent.hasExtra(SubCategoriesActivity.CATEGORY) && mIntent.hasExtra(SubCategoriesActivity.SUBCATEGORY)) {
             mMessagesDatabaseReference = FirebaseDatabase.getInstance().getReference().child(mIntent.getStringExtra(SubCategoriesActivity.CATEGORY) + "/" + mIntent.getStringExtra(SubCategoriesActivity.SUBCATEGORY));
-        mMessagesDatabaseReference.keepSynced(true);
-        setTitle(mIntent.getStringExtra(SubCategoriesActivity.SUBCATEGORY));
+            setTitle(mIntent.getStringExtra(SubCategoriesActivity.SUBCATEGORY));
+        }
+
         ListView mMessageListView = findViewById(R.id.message_list_view);
         ViewGroup relativeLayout = findViewById(R.id.relative_layout);
         mMessageEnter = findViewById(R.id.messageEnter);
@@ -61,8 +63,10 @@ public class ChatActivity extends AppCompatActivity {
         List<Message> messages = new ArrayList<>();
         mMessageAdapter = new MessageAdapter(this, messages);
         mMessageListView.setAdapter(mMessageAdapter);
+
         if (mIntent.hasExtra(SubCategoriesActivity.USER))
             mUsername = mIntent.getStringExtra(SubCategoriesActivity.USER);
+
         mSound = new SoundHelper(this);
         mAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
         mAnimation.setDuration(200);
@@ -88,15 +92,17 @@ public class ChatActivity extends AppCompatActivity {
 
         mSendButton.setOnClickListener(view -> {
             view.startAnimation(mAnimation);
-            if (mMessageEnter.length() != 0 && !mMessageEnter.getText().toString().equals("") && !mMessageEnter.getText().toString().isEmpty()) {
-                mMessage = mMessageEnter.getText().toString().trim();
-                for (String word : mWords)
-                    mMessage = Pattern.compile("\\b" + word + "\\b", Pattern.CASE_INSENSITIVE).matcher(mMessage).replaceAll(new String(new char[word.length()]).replace('\0', '*'));
-                if (mIntent.getData() != null)
-                    mMessagesDatabaseReference.push().setValue(new Message(mMessage, mUsername, mIntent.getData().toString(), Calendar.getInstance().getTime().toString()));
-                mSound.playSound();
-                mMessageEnter.setText("");
+            sendMessage();
+        });
+
+        mMessageEnter.setOnKeyListener((v, keyCode, event) -> {
+            if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                    sendMessage();
+                    return true;
+                }
             }
+            return false;
         });
 
         if (mIntent.hasExtra(SubCategoriesActivity.CATEGORY)) {
@@ -132,6 +138,18 @@ public class ChatActivity extends AppCompatActivity {
                     relativeLayout.setBackgroundResource(R.drawable.chat_background);
                     break;
             }
+        }
+    }
+
+    private void sendMessage() {
+        if (mMessageEnter.length() != 0 && !mMessageEnter.getText().toString().equals("") && !mMessageEnter.getText().toString().isEmpty()) {
+            String mMessage = mMessageEnter.getText().toString().trim();
+            for (String word : mWords)
+                mMessage = Pattern.compile("\\b" + word + "\\b", Pattern.CASE_INSENSITIVE).matcher(mMessage).replaceAll(new String(new char[word.length()]).replace('\0', '*'));
+            if (mIntent.getData() != null)
+                mMessagesDatabaseReference.push().setValue(new Message(mMessage, mUsername, mIntent.getData().toString(), Calendar.getInstance().getTime().toString()));
+            mSound.playSound();
+            mMessageEnter.setText("");
         }
     }
 

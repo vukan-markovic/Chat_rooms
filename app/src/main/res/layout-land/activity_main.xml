@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:layout_weight="1"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/primary_light"
+            android:orientation="vertical"
+            tools:ignore="NestedWeights">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:fontFamily="@font/architects_daughter"
+                android:text="@string/sport"
+                android:textAlignment="center"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_size_1"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/sport"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:onClick="sportCategoryClickHandler"
+                android:paddingStart="@dimen/image_padding"
+                android:paddingTop="@dimen/padding"
+                android:paddingEnd="@dimen/image_padding"
+                android:paddingBottom="@dimen/padding"
+                android:src="@drawable/sport" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/primary"
+            android:orientation="vertical"
+            tools:ignore="NestedWeights">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:fontFamily="@font/architects_daughter"
+                android:text="@string/crypto_currency"
+                android:textAlignment="center"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_size_1"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/crypto_currency"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:onClick="economyCategoryClickHandler"
+                android:paddingStart="@dimen/image_padding"
+                android:paddingTop="@dimen/padding"
+                android:paddingEnd="@dimen/image_padding"
+                android:paddingBottom="@dimen/padding"
+                android:src="@drawable/ecomony" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/primary_light"
+            android:orientation="vertical"
+            tools:ignore="NestedWeights">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:fontFamily="@font/architects_daughter"
+                android:text="@string/technology"
+                android:textAlignment="center"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_size_1"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/technology"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:onClick="technologyCategoryClickHandler"
+                android:paddingStart="@dimen/image_padding"
+                android:paddingTop="@dimen/padding"
+                android:paddingEnd="@dimen/image_padding"
+                android:paddingBottom="@dimen/padding"
+                android:src="@drawable/technology" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:layout_weight="1"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/primary"
+            android:orientation="vertical"
+            tools:ignore="NestedWeights">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:fontFamily="@font/architects_daughter"
+                android:text="@string/movies"
+                android:textAlignment="center"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_size_1"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/movies"
+                android:gravity="center_horizontal"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:onClick="moviesCategoryClickHandler"
+                android:paddingStart="@dimen/image_padding"
+                android:paddingTop="@dimen/padding"
+                android:paddingEnd="@dimen/image_padding"
+                android:paddingBottom="@dimen/padding"
+                android:src="@drawable/movies" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/primary_light"
+            android:orientation="vertical"
+            tools:ignore="NestedWeights">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:fontFamily="@font/architects_daughter"
+                android:text="@string/series"
+                android:textAlignment="center"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_size_1"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/series"
+                android:gravity="center_horizontal"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:onClick="seriesCategoryClickHandler"
+                android:paddingStart="@dimen/image_padding"
+                android:paddingTop="@dimen/padding"
+                android:paddingEnd="@dimen/image_padding"
+                android:paddingBottom="@dimen/padding"
+                android:src="@drawable/televisions" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/primary"
+            android:orientation="vertical"
+            tools:ignore="NestedWeights">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:fontFamily="@font/architects_daughter"
+                android:text="@string/art"
+                android:textAlignment="center"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_size_1"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/art"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:onClick="artCategoryClickHandler"
+                android:paddingStart="@dimen/image_padding"
+                android:paddingTop="@dimen/padding"
+                android:paddingEnd="@dimen/image_padding"
+                android:paddingBottom="@dimen/padding"
+                android:src="@drawable/art" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:layout_weight="1"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/primary_light"
+            android:orientation="vertical"
+            tools:ignore="NestedWeights">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:fontFamily="@font/architects_daughter"
+                android:text="@string/music"
+                android:textAlignment="center"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_size_1"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/music"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:onClick="musicCategoryClickHandler"
+                android:paddingStart="@dimen/image_padding"
+                android:paddingTop="@dimen/padding"
+                android:paddingEnd="@dimen/image_padding"
+                android:paddingBottom="@dimen/padding"
+                android:src="@drawable/music"
+                tools:ignore="NestedWeights" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/primary"
+            android:orientation="vertical"
+            tools:ignore="NestedWeights">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:fontFamily="@font/architects_daughter"
+                android:text="@string/games"
+                android:textAlignment="center"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_size_1"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/games"
+                android:gravity="center_horizontal"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:onClick="gamesCategoryClickHandler"
+                android:paddingStart="@dimen/image_padding"
+                android:paddingTop="@dimen/padding"
+                android:paddingEnd="@dimen/image_padding"
+                android:paddingBottom="@dimen/padding"
+                android:src="@drawable/games" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/primary_light"
+            android:orientation="vertical"
+            tools:ignore="NestedWeights">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:fontFamily="@font/architects_daughter"
+                android:text="@string/countries"
+                android:textAlignment="center"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_size_1"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/countries"
+                android:gravity="center_horizontal"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:onClick="countriesCategoryClickHandler"
+                android:paddingStart="@dimen/image_padding"
+                android:paddingTop="@dimen/padding"
+                android:paddingEnd="@dimen/image_padding"
+                android:paddingBottom="@dimen/padding"
+                android:src="@drawable/countries" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

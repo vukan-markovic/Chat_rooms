@@ -9,8 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 class SoundHelper {
     private final SoundPool mSoundPool;
     private final int mSoundID;
-    private boolean mLoaded;
     private final float mVolume;
+    private boolean mLoaded;
 
     SoundHelper(AppCompatActivity activity) {
         AudioManager audioManager = (AudioManager) activity.getSystemService(Context.AUDIO_SERVICE);

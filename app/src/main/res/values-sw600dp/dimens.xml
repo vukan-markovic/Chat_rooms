@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size">36sp</dimen>
+    <dimen name="text_size_1">30sp</dimen>
+    <dimen name="profile_picture_width_1">160dp</dimen>
+    <dimen name="profile_picture_height_1">160dp</dimen>
+</resources>

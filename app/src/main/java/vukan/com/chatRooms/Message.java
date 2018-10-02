@@ -1,10 +1,7 @@
 package vukan.com.chatRooms;
 
-public class Message {
-    private String text;
-    private String name;
-    private String dateTime;
-    private String profileUrl;
+class Message {
+    private String text, name, dateTime, profileUrl;
 
     public Message() {
     }
