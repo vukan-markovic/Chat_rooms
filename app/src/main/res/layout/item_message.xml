@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="@dimen/margin"
     android:layout_marginStart="@dimen/margin"
+    android:layout_marginLeft="@dimen/margin"
     android:background="@color/primary_light"
     android:orientation="horizontal"
     android:padding="@dimen/padding">
@@ -15,7 +15,7 @@
         android:layout_height="@dimen/profile_picture_height"
         android:layout_gravity="bottom"
         android:contentDescription="@string/profile_picture"
-        app:civ_border_color="@color/accent"
+        app:civ_border_color="@color/primary_dark"
         app:civ_border_width="@dimen/civ_border_width"
         tools:src="@android:mipmap/sym_def_app_icon" />
 
@@ -39,10 +39,11 @@
             android:minLines="1"
             android:saveEnabled="true"
             android:shadowColor="@color/accent"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/primary_dark"
             android:textColorLink="@color/primary"
             android:textIsSelectable="true"
+            android:textSize="@dimen/text_size"
             android:textStyle="bold"
             android:typeface="serif"
             android:visibility="visible"
@@ -54,7 +55,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="casual"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/accent"
+            android:textColor="@color/primary"
+            android:textSize="@dimen/text_size"
             android:textStyle="bold"
             tools:text="Name" />
 
@@ -63,7 +65,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/yatra_one"
-            android:textColor="@android:color/holo_orange_dark"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/secondary_text"
+            android:textSize="@dimen/text_size"
             android:textStyle="bold"
             tools:text="Time" />
 

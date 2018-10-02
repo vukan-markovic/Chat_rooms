@@ -9,47 +9,104 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/zero"
         android:layout_weight="1"
+        android:baselineAligned="false"
         android:orientation="horizontal">
 
-        <ImageView
+        <LinearLayout
+            android:layout_width="@dimen/zero"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/primary_light"
+            android:orientation="vertical"
+            tools:ignore="NestedWeights">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:fontFamily="@font/architects_daughter"
+                android:text="@string/sport"
+                android:textAlignment="center"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_size_1"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/sport"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:onClick="sportCategoryClickHandler"
+                android:paddingStart="@dimen/image_padding"
+                android:paddingEnd="@dimen/image_padding"
+                android:src="@drawable/sport" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="@dimen/zero"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/primary"
-            android:contentDescription="@string/sport"
-            android:minHeight="48dp"
-            android:minWidth="48dp"
-            android:onClick="sportCategoryClickHandler"
-            android:paddingLeft="@dimen/image_padding"
-            android:paddingRight="@dimen/image_padding"
-            android:src="@drawable/sport"
-            tools:ignore="NestedWeights" />
+            android:orientation="vertical"
+            tools:ignore="NestedWeights">
 
-        <ImageView
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:fontFamily="@font/architects_daughter"
+                android:text="@string/crypto_currency"
+                android:textAlignment="center"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_size_1"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/crypto_currency"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:onClick="economyCategoryClickHandler"
+                android:paddingStart="@dimen/image_padding"
+                android:paddingEnd="@dimen/image_padding"
+                android:src="@drawable/ecomony" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="@dimen/zero"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/accent"
-            android:contentDescription="@string/crypto_currency"
-            android:minHeight="48dp"
-            android:minWidth="48dp"
-            android:onClick="economyCategoryClickHandler"
-            android:paddingLeft="@dimen/image_padding"
-            android:paddingRight="@dimen/image_padding"
-            android:src="@drawable/ecomony" />
+            android:background="@color/primary_light"
+            android:orientation="vertical"
+            tools:ignore="NestedWeights">
 
-        <ImageView
-            android:layout_width="@dimen/zero"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/primary"
-            android:contentDescription="@string/technology"
-            android:minHeight="48dp"
-            android:minWidth="48dp"
-            android:onClick="technologyCategoryClickHandler"
-            android:paddingLeft="@dimen/image_padding"
-            android:paddingRight="@dimen/image_padding"
-            android:src="@drawable/technology" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:fontFamily="@font/architects_daughter"
+                android:text="@string/technology"
+                android:textAlignment="center"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_size_1"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/technology"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:onClick="technologyCategoryClickHandler"
+                android:paddingStart="@dimen/image_padding"
+                android:paddingEnd="@dimen/image_padding"
+                android:src="@drawable/technology" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -57,100 +114,210 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/zero"
         android:layout_weight="1"
+        android:baselineAligned="false"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="@dimen/zero"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/accent"
-            android:contentDescription="@string/movies"
-            android:gravity="center_horizontal"
-            android:minHeight="48dp"
-            android:minWidth="48dp"
-            android:onClick="moviesCategoryClickHandler"
-            android:paddingLeft="@dimen/image_padding"
-            android:paddingRight="@dimen/image_padding"
-            android:src="@drawable/movies"
-            tools:ignore="NestedWeights" />
-
-        <ImageView
+        <LinearLayout
             android:layout_width="@dimen/zero"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/primary"
-            android:contentDescription="@string/series"
-            android:gravity="center_horizontal"
-            android:minHeight="48dp"
-            android:minWidth="48dp"
-            android:onClick="seriesCategoryClickHandler"
-            android:paddingBottom="@dimen/series_padding"
-            android:paddingLeft="@dimen/image_padding"
-            android:paddingRight="@dimen/image_padding"
-            android:paddingTop="@dimen/series_padding"
-            android:src="@drawable/series" />
+            android:orientation="vertical"
+            tools:ignore="NestedWeights">
 
-        <ImageView
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:fontFamily="@font/architects_daughter"
+                android:text="@string/movies"
+                android:textAlignment="center"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_size_1"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/movies"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:onClick="moviesCategoryClickHandler"
+                android:paddingStart="@dimen/image_padding"
+                android:paddingEnd="@dimen/image_padding"
+                android:src="@drawable/movies" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="@dimen/zero"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/accent"
-            android:contentDescription="@string/art"
-            android:minHeight="48dp"
-            android:minWidth="48dp"
-            android:onClick="artCategoryClickHandler"
-            android:paddingLeft="@dimen/image_padding"
-            android:paddingRight="@dimen/image_padding"
-            android:src="@drawable/art" />
+            android:background="@color/primary_light"
+            android:orientation="vertical"
+            tools:ignore="NestedWeights">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:fontFamily="@font/architects_daughter"
+                android:text="@string/series"
+                android:textAlignment="center"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_size_1"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/series"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:onClick="seriesCategoryClickHandler"
+                android:paddingStart="@dimen/image_padding"
+                android:paddingEnd="@dimen/image_padding"
+                android:src="@drawable/televisions" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/zero"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/primary"
+            android:orientation="vertical"
+            tools:ignore="NestedWeights">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:fontFamily="@font/architects_daughter"
+                android:text="@string/art"
+                android:textAlignment="center"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_size_1"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/art"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:onClick="artCategoryClickHandler"
+                android:paddingStart="@dimen/image_padding"
+                android:paddingEnd="@dimen/image_padding"
+                android:src="@drawable/art" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/zero"
         android:layout_weight="1"
+        android:baselineAligned="false"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="@dimen/zero"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/primary_light"
+            android:orientation="vertical"
+            tools:ignore="NestedWeights">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:fontFamily="@font/architects_daughter"
+                android:text="@string/music"
+                android:textAlignment="center"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_size_1"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/music"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:onClick="musicCategoryClickHandler"
+                android:paddingStart="@dimen/image_padding"
+                android:paddingEnd="@dimen/image_padding"
+                android:src="@drawable/music"
+                tools:ignore="NestedWeights" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/primary"
-            android:contentDescription="@string/music"
-            android:minHeight="48dp"
-            android:minWidth="48dp"
-            android:onClick="musicCategoryClickHandler"
-            android:paddingLeft="@dimen/image_padding"
-            android:paddingRight="@dimen/image_padding"
-            android:src="@drawable/music"
-            tools:ignore="NestedWeights" />
+            android:orientation="vertical"
+            tools:ignore="NestedWeights">
 
-        <ImageView
-            android:layout_width="@dimen/zero"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:fontFamily="@font/architects_daughter"
+                android:text="@string/games"
+                android:textAlignment="center"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_size_1"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/games"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:onClick="gamesCategoryClickHandler"
+                android:paddingStart="@dimen/image_padding"
+                android:paddingEnd="@dimen/image_padding"
+                android:src="@drawable/games" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/accent"
-            android:contentDescription="@string/games"
-            android:gravity="center_horizontal"
-            android:minHeight="48dp"
-            android:minWidth="48dp"
-            android:onClick="gamesCategoryClickHandler"
-            android:paddingLeft="@dimen/image_padding"
-            android:paddingRight="@dimen/image_padding"
-            android:src="@drawable/games" />
+            android:background="@color/primary_light"
+            android:orientation="vertical"
+            tools:ignore="NestedWeights">
 
-        <ImageView
-            android:layout_width="@dimen/zero"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/primary"
-            android:contentDescription="@string/countries"
-            android:gravity="center_horizontal"
-            android:minHeight="48dp"
-            android:minWidth="48dp"
-            android:onClick="countriesCategoryClickHandler"
-            android:paddingLeft="@dimen/image_padding"
-            android:paddingRight="@dimen/image_padding"
-            android:src="@drawable/countries" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin"
+                android:fontFamily="@font/architects_daughter"
+                android:text="@string/countries"
+                android:textAlignment="center"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_size_1"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/countries"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:onClick="countriesCategoryClickHandler"
+                android:paddingStart="@dimen/image_padding"
+                android:paddingEnd="@dimen/image_padding"
+                android:src="@drawable/countries" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

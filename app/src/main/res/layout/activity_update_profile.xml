@@ -8,6 +8,15 @@
     android:orientation="vertical"
     tools:context=".UpdateProfileActivity">
 
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/photo"
+        android:layout_width="@dimen/profile_picture_width_1"
+        android:layout_height="@dimen/profile_picture_height_1"
+        android:layout_marginBottom="@dimen/margin"
+        app:civ_border_color="@color/primary_light"
+        app:civ_border_width="@dimen/civ_border_width"
+        tools:src="@android:mipmap/sym_def_app_icon" />
+
     <EditText
         android:id="@+id/update_username"
         android:layout_width="wrap_content"
@@ -26,44 +35,15 @@
         tools:ignore="Autofill,LabelFor"
         tools:text="Username" />
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/profile_picture_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin"
-            android:fontFamily="@font/architects_daughter"
-            android:padding="@dimen/padding"
-            android:text="@string/profile_picture"
-            android:textColor="@color/primary_light"
-            android:textSize="@dimen/text_size"
-            android:textStyle="bold"
-            android:typeface="serif" />
-
-        <ImageButton
-            android:id="@+id/photo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin"
-            android:layout_toEndOf="@id/profile_picture_label"
-            android:layout_toRightOf="@id/profile_picture_label"
-            android:background="@color/fui_transparent"
-            android:contentDescription="@string/profile_picture_url"
-            android:padding="@dimen/padding"
-            android:src="@android:drawable/ic_menu_gallery" />
-
-    </RelativeLayout>
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_selector"
         android:fontFamily="@font/architects_daughter"
         android:onClick="changeProfile"
+        android:padding="@dimen/padding"
         android:text="@string/change"
-        android:textColor="@color/primary_light" />
+        android:textColor="@color/primary_light"
+        android:textSize="@dimen/text_size" />
 
 </LinearLayout>

@@ -57,7 +57,7 @@
         <activity
             android:name=".MainActivity"
             android:colorMode="wideColorGamut"
-            android:screenOrientation="portrait">
+            android:rotationAnimation="crossfade">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

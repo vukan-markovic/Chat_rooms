@@ -2,6 +2,7 @@ package vukan.com.chatRooms;
 
 import android.app.ActivityOptions;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -11,6 +12,7 @@ import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,40 +32,28 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String CATEGORY = "category";
-    public static final String USER = "mFirebaseUser";
-    public static final String USERNAME = "username";
-    private static final int RC_SIGN_IN = 1;
-    private static final int REQUEST_INVITE = 2;
-    private static final String TAG = "MainActivity";
+    public static final String CATEGORY = "category", USER = "user", USERNAME = "username";
+    private static final int RC_SIGN_IN = 1, REQUEST_INVITE = 2;
+    private boolean flag;
     private FirebaseAuth mFirebaseAuth;
-    Animation animation;
+    private Animation mAnimation;
     @Nullable
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     @Nullable
     private FirebaseUser mFirebaseUser;
+    private DialogFragment mDialogFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
-        animation.setDuration(100);
+        mAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
+        mAnimation.setDuration(100);
         FirebaseDynamicLinks.getInstance().getDynamicLink(getIntent()).addOnFailureListener(this, e -> Toast.makeText(this, R.string.dynamic_link_fail, Toast.LENGTH_SHORT).show());
 
         if (!isConnected()) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this)
-                    .setTitle(R.string.internet_connection)
-                    .setMessage(R.string.wi_fi)
-                    .setCancelable(false)
-                    .setIcon(R.drawable.signal_wifi_off);
-            builder.setPositiveButton(android.R.string.yes, (dialog, which) -> {
-                WifiManager wifiManager = (WifiManager) this.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-                if (wifiManager != null) wifiManager.setWifiEnabled(true);
-            });
-            builder.setNegativeButton(R.string.exit, ((dialog, which) -> finish()));
-            builder.create();
-            builder.show();
+            mDialogFragment = DialogWindow.newInstance(getString(R.string.internet_connection), getString(R.string.wi_fi), flag);
+            mDialogFragment.show(getSupportFragmentManager(), "tag");
         }
 
         mFirebaseAuth = FirebaseAuth.getInstance();
@@ -74,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                         .createSignInIntentBuilder()
                         .setIsSmartLockEnabled(true, true)
                         .setAvailableProviders(Arrays.asList(new AuthUI.IdpConfig.FacebookBuilder().build(), new AuthUI.IdpConfig.TwitterBuilder().build(), new AuthUI.IdpConfig.GoogleBuilder().build()))
-                        .setTheme(R.style.GreenTheme)
+                        .setTheme(R.style.AuthTheme)
                         .setLogo(R.mipmap.ic_launcher)
                         .build(), RC_SIGN_IN);
             }
@@ -104,28 +94,29 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.update_profile_menu:
-                Intent intent1 = new Intent(this, UpdateProfileActivity.class);
-                intent1.putExtra(USERNAME, Objects.requireNonNull(mFirebaseUser).getDisplayName());
-                startActivity(intent1);
+                Intent intent = new Intent(this, UpdateProfileActivity.class);
+                intent.putExtra(USERNAME, Objects.requireNonNull(mFirebaseUser).getDisplayName());
+                intent.setData(mFirebaseUser.getPhotoUrl());
+                startActivity(intent);
                 break;
             case R.id.chat_rules_menu:
                 startActivity(new Intent(this, ChatRulesActivity.class));
                 break;
             case R.id.invite_friends_menu:
-                Intent intent = new AppInviteInvitation.IntentBuilder(getString(R.string.invitation_title))
+                Intent intent1 = new AppInviteInvitation.IntentBuilder(getString(R.string.invitation_title))
                         .setMessage(getString(R.string.invitation_message))
                         .setDeepLink(Uri.parse(getString(R.string.invitation_deep_link)))
                         .setCustomImage(Uri.parse(getString(R.string.invite_friends_email_photo)))
                         .setCallToActionText(getString(R.string.invitation_cta))
                         .build();
-                startActivityForResult(intent, REQUEST_INVITE);
+                startActivityForResult(intent1, REQUEST_INVITE);
                 break;
             case R.id.share_menu:
-                Intent sendIntent = new Intent();
-                sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, R.string.share_app);
-                sendIntent.setType("text/plain");
-                startActivity(sendIntent);
+                Intent intent2 = new Intent();
+                intent2.setAction(Intent.ACTION_SEND);
+                intent2.putExtra(Intent.EXTRA_TEXT, "Hey, check this out: https://vukan97.page.link/chat_rooms!");
+                intent2.setType("text/plain");
+                startActivity(intent2);
                 break;
             case R.id.sign_out_menu:
                 AuthUI.getInstance()
@@ -133,17 +124,9 @@ public class MainActivity extends AppCompatActivity {
                         .addOnCompleteListener(task -> Toast.makeText(this, R.string.signed_out, Toast.LENGTH_SHORT).show());
                 break;
             case R.id.delete_account_menu:
-                AlertDialog.Builder builder = new AlertDialog.Builder(this)
-                        .setTitle(R.string.delete_account)
-                        .setMessage(R.string.confirm)
-                        .setCancelable(false)
-                        .setIcon(R.drawable.delete);
-                builder.setPositiveButton(android.R.string.yes, (dialog, which) -> AuthUI.getInstance()
-                        .delete(this)
-                        .addOnCompleteListener(task -> Toast.makeText(this, R.string.account_deleted, Toast.LENGTH_SHORT).show()));
-                builder.setNegativeButton(android.R.string.no, null);
-                builder.create();
-                builder.show();
+                flag = true;
+                mDialogFragment = DialogWindow.newInstance(getString(R.string.delete_account), getString(R.string.confirm), flag);
+                mDialogFragment.show(getSupportFragmentManager(), "tag");
                 break;
             default:
                 return super.onOptionsItemSelected(item);
@@ -152,62 +135,109 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    private void doPositiveClickDelete() {
+        AuthUI.getInstance().delete(this).addOnCompleteListener(task -> Toast.makeText(this, R.string.account_deleted, Toast.LENGTH_SHORT).show());
+    }
+
+    private void doPositiveClickConnection() {
+        WifiManager wifiManager = (WifiManager) this.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        if (wifiManager != null) wifiManager.setWifiEnabled(true);
+    }
+
+    private void doNegativeClickConnection() {
+        finish();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mAuthStateListener != null) mFirebaseAuth.removeAuthStateListener(mAuthStateListener);
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
         mFirebaseAuth.addAuthStateListener(Objects.requireNonNull(mAuthStateListener));
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (mAuthStateListener != null)
-            mFirebaseAuth.removeAuthStateListener(mAuthStateListener);
-    }
-
     public void sportCategoryClickHandler(@NonNull View view) {
-        view.startAnimation(animation);
+        view.startAnimation(mAnimation);
         openChat("sport");
     }
 
     public void economyCategoryClickHandler(@NonNull View view) {
-        view.startAnimation(animation);
+        view.startAnimation(mAnimation);
         openChat("economy");
     }
 
     public void technologyCategoryClickHandler(@NonNull View view) {
-        view.startAnimation(animation);
+        view.startAnimation(mAnimation);
         openChat("technology");
     }
 
     public void moviesCategoryClickHandler(@NonNull View view) {
-        view.startAnimation(animation);
+        view.startAnimation(mAnimation);
         openChat("movies");
     }
 
     public void seriesCategoryClickHandler(@NonNull View view) {
-        view.startAnimation(animation);
+        view.startAnimation(mAnimation);
         openChat("series");
     }
 
     public void artCategoryClickHandler(@NonNull View view) {
-        view.startAnimation(animation);
+        view.startAnimation(mAnimation);
         openChat("art");
     }
 
     public void musicCategoryClickHandler(@NonNull View view) {
-        view.startAnimation(animation);
+        view.startAnimation(mAnimation);
         openChat("music");
     }
 
     public void gamesCategoryClickHandler(@NonNull View view) {
-        view.startAnimation(animation);
+        view.startAnimation(mAnimation);
         openChat("games");
     }
 
     public void countriesCategoryClickHandler(@NonNull View view) {
-        view.startAnimation(animation);
+        view.startAnimation(mAnimation);
         openChat("countries");
+    }
+
+    public static class DialogWindow extends DialogFragment {
+
+        static DialogWindow newInstance(String title, String message, Boolean flag) {
+            DialogWindow dialog = new DialogWindow();
+            Bundle args = new Bundle();
+            args.putString("title", title);
+            args.putString("message", message);
+            args.putBoolean("flag", flag);
+            dialog.setArguments(args);
+            return dialog;
+        }
+
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            if (getArguments() != null) {
+                builder.setTitle(getArguments().getString("title"));
+                builder.setMessage(getArguments().getString("message"));
+                builder.setCancelable(false);
+                if (getArguments().getBoolean("flag")) {
+                    builder.setIcon(R.drawable.delete);
+                    builder.setPositiveButton(android.R.string.yes, (dialog, which) -> ((MainActivity) Objects.requireNonNull(getActivity())).doPositiveClickDelete());
+                    builder.setNegativeButton(android.R.string.no, null);
+                } else {
+                    builder.setIcon(R.drawable.signal_wifi_off);
+                    builder.setPositiveButton(android.R.string.yes, (dialog, which) -> ((MainActivity) Objects.requireNonNull(getActivity())).doPositiveClickConnection());
+                    builder.setNegativeButton(R.string.exit, (dialog, which) -> ((MainActivity) Objects.requireNonNull(getActivity())).doNegativeClickConnection());
+                }
+            }
+
+            return builder.create();
+        }
     }
 
     private void openChat(String category) {

@@ -10,31 +10,42 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class UpdateProfileActivity extends AppCompatActivity {
     private static final int RC_PHOTO_PICKER = 1;
+    private static final String PHOTO = "PHOTO";
     @Nullable
     private Uri mSelectedImageUri;
     private Animation mAnimation;
     @Nullable
     private EditText mName;
+    private CircleImageView photo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_profile);
         mName = findViewById(R.id.update_username);
-        ImageButton photo = findViewById(R.id.photo);
-        if (getIntent().hasExtra(MainActivity.USERNAME) && mName != null)
-            mName.setText(getIntent().getStringExtra(MainActivity.USERNAME));
+        photo = findViewById(R.id.photo);
         mAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
         mAnimation.setDuration(100);
+        Intent intent = getIntent();
+
+        if (intent.hasExtra(MainActivity.USERNAME) && mName != null)
+            mName.setText(intent.getStringExtra(MainActivity.USERNAME));
+        if (intent.getData() != null) mSelectedImageUri = intent.getData();
+
+        Glide.with(photo.getContext())
+                .load(mSelectedImageUri)
+                .into(photo);
 
         photo.setOnClickListener(view -> {
             view.startAnimation(mAnimation);
@@ -69,6 +80,26 @@ public class UpdateProfileActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RC_PHOTO_PICKER && resultCode == RESULT_OK)
-            if (data != null) mSelectedImageUri = data.getData();
+            if (data != null) {
+                mSelectedImageUri = data.getData();
+                Glide.with(photo.getContext())
+                        .load(data.getData())
+                        .into(photo);
+            }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        if (mSelectedImageUri != null) outState.putString(PHOTO, mSelectedImageUri.toString());
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mSelectedImageUri = Uri.parse(savedInstanceState.getString(PHOTO));
+        Glide.with(photo.getContext())
+                .load(mSelectedImageUri)
+                .into(photo);
     }
 }

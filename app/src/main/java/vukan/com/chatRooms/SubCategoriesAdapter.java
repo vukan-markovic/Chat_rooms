@@ -1,6 +1,6 @@
 package vukan.com.chatRooms;
 
-import android.content.Context;
+import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,41 +11,40 @@ import android.widget.TextView;
 import java.util.Arrays;
 
 public class SubCategoriesAdapter extends RecyclerView.Adapter<SubCategoriesAdapter.SubCategoriesHolder> {
-
     private final int mNumbersItems;
     private String[] mSubcategories;
 
-    SubCategoriesAdapter(int numberOfItems, ListItemClickListener listener, @NonNull String category, @NonNull Context context) {
+    SubCategoriesAdapter(int numberOfItems, ListItemClickListener listener, @NonNull String category, @NonNull Resources resources) {
         mNumbersItems = numberOfItems;
         mOnClickListener = listener;
 
         switch (category) {
             case "sport":
-                mSubcategories = context.getResources().getStringArray(R.array.sports);
+                mSubcategories = resources.getStringArray(R.array.sports);
                 break;
             case "technology":
-                mSubcategories = context.getResources().getStringArray(R.array.technologies);
+                mSubcategories = resources.getStringArray(R.array.technologies);
                 break;
             case "movies":
-                mSubcategories = context.getResources().getStringArray(R.array.movies);
+                mSubcategories = resources.getStringArray(R.array.movies);
                 break;
             case "series":
-                mSubcategories = context.getResources().getStringArray(R.array.series);
+                mSubcategories = resources.getStringArray(R.array.series);
                 break;
             case "economy":
-                mSubcategories = context.getResources().getStringArray(R.array.crypto_currency);
+                mSubcategories = resources.getStringArray(R.array.crypto_currency);
                 break;
             case "art":
-                mSubcategories = context.getResources().getStringArray(R.array.art);
+                mSubcategories = resources.getStringArray(R.array.art);
                 break;
             case "music":
-                mSubcategories = context.getResources().getStringArray(R.array.music);
+                mSubcategories = resources.getStringArray(R.array.music);
                 break;
             case "games":
-                mSubcategories = context.getResources().getStringArray(R.array.games);
+                mSubcategories = resources.getStringArray(R.array.games);
                 break;
             case "countries":
-                mSubcategories = context.getResources().getStringArray(R.array.countries);
+                mSubcategories = resources.getStringArray(R.array.countries);
                 break;
         }
 
