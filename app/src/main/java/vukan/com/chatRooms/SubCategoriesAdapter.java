@@ -74,7 +74,7 @@ public class SubCategoriesAdapter extends RecyclerView.Adapter<SubCategoriesAdap
     }
 
     class SubCategoriesHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView subcategory;
+        final TextView subcategory;
 
         SubCategoriesHolder(@NonNull View view) {
             super(view);
