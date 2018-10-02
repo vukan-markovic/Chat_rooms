@@ -25,8 +25,10 @@ public class SubCategoriesActivity extends AppCompatActivity implements SubCateg
         recyclerView.setHasFixedSize(true);
         Resources resources = getResources();
         Intent mIntent = getIntent();
-        if (mIntent.hasExtra(MainActivity.USER)) user = mIntent.getStringExtra(MainActivity.USER);
+        if (mIntent.hasExtra(MainActivity.USER))
+            user = mIntent.getStringExtra(MainActivity.USER);
         if (mIntent.getData() != null) photo = mIntent.getData();
+
         if (mIntent.hasExtra(MainActivity.CATEGORY)) {
             category = mIntent.getStringExtra(MainActivity.CATEGORY);
             switch (category) {

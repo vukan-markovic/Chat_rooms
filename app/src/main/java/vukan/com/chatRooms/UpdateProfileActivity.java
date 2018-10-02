@@ -52,7 +52,9 @@ public class UpdateProfileActivity extends AppCompatActivity {
             Intent intent1 = new Intent(Intent.ACTION_GET_CONTENT);
             intent1.setType("image/jpeg");
             intent1.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
-            startActivityForResult(Intent.createChooser(intent1, getString(R.string.photo_picker_title)), RC_PHOTO_PICKER);
+            Intent chooser = Intent.createChooser(intent1, getString(R.string.photo_picker_title));
+            if (intent1.resolveActivity(getPackageManager()) != null)
+                startActivityForResult(chooser, RC_PHOTO_PICKER);
         });
     }
 
