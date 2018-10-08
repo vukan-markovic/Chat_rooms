@@ -11,6 +11,10 @@ There is also option to invite your friends to the app and share application wit
 
 [Link to the Amazon Appstore](http://a.co/d/dEEt6vL)
 
+[Documentation](https://vukan-markovic.github.io/Chat_rooms/)
+
+## Screenshots:
+
 ![Sign-in screen](https://lh3.googleusercontent.com/A-vUWdMoSl9phlMV6Gu9NZVTiEHcLv3hpWxfvkCy07116Al_ah9iWXcVim3Q9SNgVHY=w1280-h699-rw)
 
 ![Home screen](https://lh3.googleusercontent.com/Gc9gUte2QJAlBGEGjmK5hoQo5wA-xwETnx48rFWIflIMJmGc65lWlojyIJl-8qZsOOSN=w1280-h699-rw)
