@@ -9,7 +9,7 @@ Application have support for Google, Facebook and Twitter sign-in.
 You can create your account, update your username and profile picture, sign out and delete account.
 There is also option to invite your friends to the app and share application with others.
 
-Amazon Appstore: [Link to the Amazon Appstore](http://a.co/d/dEEt6vL)
+[Link to the Amazon Appstore](http://a.co/d/dEEt6vL)
 
 ![Sign-in screen](https://lh3.googleusercontent.com/A-vUWdMoSl9phlMV6Gu9NZVTiEHcLv3hpWxfvkCy07116Al_ah9iWXcVim3Q9SNgVHY=w1280-h699-rw)
 
