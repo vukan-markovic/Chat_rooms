@@ -41,10 +41,6 @@
     <string name="internet_connection">No internet connection!</string>
     <string name="wi_fi">Turn on Wi-fi connection?</string>
     <string name="update_profile_activity">Update profile</string>
-    <string name="twitter_consumer_key" translatable="false">Qdi72lFNQK0h3To4XqYAbt3fq</string>
-    <string name="twitter_consumer_secret" translatable="false">JtPXQZxxVYn5c5cJLFRmllD5DRM6zG7YlIxjBZnxXmSOny0HOt</string>
-    <string name="facebook_application_id" translatable="false">419069908499165</string>
-    <string name="facebook_login_protocol_scheme" translatable="false">fb419069908499165</string>
     <string name="invitation_deep_link" translatable="false">https://vukan97.page.link/chat_rooms</string>
     <string name="invite_friends_email_photo" translatable="false">https://www.idealizetecnologia.com.br/blog/wp-content/uploads/2018/03/chat-ecommerce-1024x867.jpg</string>
 </resources>
