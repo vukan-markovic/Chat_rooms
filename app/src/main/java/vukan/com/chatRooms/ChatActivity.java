@@ -2,6 +2,7 @@ package vukan.com.chatRooms;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +30,11 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.regex.Pattern;
 
+/**
+ * <h1>ChatActivity</h1>
+ *
+ * <p><b>ChatActivity</b> present user screen for appropriate chat room.</p>
+ */
 public class ChatActivity extends AppCompatActivity {
     private static final String ANONYMOUS = "anonymous";
     private static final int DEFAULT_MSG_LENGTH_LIMIT = 500;
@@ -44,6 +50,12 @@ public class ChatActivity extends AppCompatActivity {
     private List<String> mWords;
     private Animation mAnimation;
 
+    /**
+     * This method is responsible for constructing screen for ChatActivity.
+     *
+     * @param savedInstanceState potentially contain saved state due to configurations changes.
+     * @see AppCompatActivity#onCreate(Bundle, PersistableBundle)
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -142,6 +154,19 @@ public class ChatActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * This method is called when user taps button to send the message.
+     * Method first check that message is not empty, delete unnecessary white spaces and filter message to hide any unfavorable content.
+     * Then sends message to Firebase Realtime database and play appropriate sound.
+     *
+     * @see String#trim()
+     * @see String#length()
+     * @see String#equals(Object)
+     * @see String#isEmpty()
+     * @see Pattern
+     * @see SoundHelper#playSound()
+     * @see FirebaseDatabase#getInstance()
+     */
     private void sendMessage() {
         if (mMessageEnter.length() != 0 && !mMessageEnter.getText().toString().equals("") && !mMessageEnter.getText().toString().isEmpty()) {
             String mMessage = mMessageEnter.getText().toString().trim();
@@ -154,6 +179,12 @@ public class ChatActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * This method is called when activity is paused, username and message adapter are cleared, and database listener is detached.
+     *
+     * @see ChatActivity#detachDatabaseReadListener()
+     * @see AppCompatActivity#onPause()
+     */
     @Override
     protected void onPause() {
         super.onPause();
@@ -162,6 +193,12 @@ public class ChatActivity extends AppCompatActivity {
         detachDatabaseReadListener();
     }
 
+    /**
+     * This method is called to add listeners to Firebase Realtime database which are triggered every time data is changed.
+     * In this case, we listen only when new message is added, because chat messages cannot be changed, removed or moved by the users.
+     *
+     * @see ChildEventListener#onChildAdded(DataSnapshot, String)
+     */
     private void attachDatabaseReadListener() {
         if (mChildEventListener == null) {
             mChildEventListener = new ChildEventListener() {
@@ -191,6 +228,11 @@ public class ChatActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * This method remove listener from database when activity goes in pause state.
+     *
+     * @see ChatActivity#onPause()
+     */
     private void detachDatabaseReadListener() {
         if (mChildEventListener != null) {
             mMessagesDatabaseReference.removeEventListener(mChildEventListener);
@@ -198,18 +240,38 @@ public class ChatActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * This method return listener to database when user is back to the activity.
+     *
+     * @see AppCompatActivity#onResume()
+     */
     @Override
     protected void onResume() {
         super.onResume();
         attachDatabaseReadListener();
     }
 
+    /**
+     * This method is called when user leave this activity, activity is finished and appropriate animation is displayed.
+     *
+     * @see AppCompatActivity#overridePendingTransition(int, int)
+     */
     @Override
     public void finish() {
         super.finish();
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
     }
 
+    /**
+     * This method override default behavior when user pressed back button displayed on action bar.
+     * Instead of finish activity, it's called method onBackPressed().
+     *
+     * @param menuItem represent menu item which user tapped, in this case back button.
+     * @return call to the parent class method onOptionsItemSelected().
+     * @see AppCompatActivity#onOptionsItemSelected(MenuItem)
+     * @see AppCompatActivity#finish()
+     * @see AppCompatActivity#onBackPressed()
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem menuItem) {
         int itemId = menuItem.getItemId();
