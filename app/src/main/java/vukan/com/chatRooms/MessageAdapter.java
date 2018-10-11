@@ -16,12 +16,31 @@ import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+/**
+ * <h1>MessageAdapter</h1>
+ *
+ * <p><b>MessageAdapter</b> class is responsible for loading list of chat messages.</p>
+ *
+ * @see ArrayAdapter
+ */
 class MessageAdapter extends ArrayAdapter<Message> {
 
     MessageAdapter(@NonNull Context context, @NonNull List<Message> objects) {
         super(context, R.layout.item_message, objects);
     }
 
+    /**
+     * This method is responsible for fill chat message with all necessary information (message body, profile picture of the author, author name and time when message is sent).
+     *
+     * @param position    represent position of chat message in list of messages
+     * @param convertView represent chat message
+     * @param parent      represent parent layout of this view (message)
+     * @return View which represent chat message
+     * @see ArrayAdapter#getView(int, View, ViewGroup)
+     * @see CircleImageView
+     * @see Glide
+     * @see android.view.LayoutInflater#inflate(int, ViewGroup)
+     */
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {

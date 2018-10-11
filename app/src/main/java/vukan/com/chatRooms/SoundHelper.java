@@ -6,6 +6,11 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.support.v7.app.AppCompatActivity;
 
+/**
+ * <h1>SoundHelper</h1>
+ *
+ * <p><b>SoundHelper</b> class is responsible for reproducing sound when someone tap button to send message.</p>
+ */
 class SoundHelper {
     private final SoundPool mSoundPool;
     private final int mSoundID;
@@ -28,6 +33,11 @@ class SoundHelper {
         mSoundID = mSoundPool.load(activity, R.raw.pop_sound_effect, 1);
     }
 
+    /**
+     * This method is responsible for play pop sound on sending new message.
+     *
+     * @see SoundPool#play(int, float, float, int, int, float)
+     */
     void playSound() {
         if (mLoaded) mSoundPool.play(mSoundID, mVolume, mVolume, 1, 0, 3f);
     }
